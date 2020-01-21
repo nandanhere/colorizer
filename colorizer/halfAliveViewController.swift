@@ -15,7 +15,7 @@ extension NSMutableAttributedString {
     }
 
 }
-
+ 
 extension UIImage {
 
 /// Gives color of the pixel in context by taking the bitmap information of the image
@@ -41,7 +41,6 @@ extension UIImage {
 class ViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UIScrollViewDelegate {
 @IBOutlet weak var Scroll: UIScrollView!
 @IBOutlet weak var myImageView: UIImageView!
-@IBOutlet weak var color: UILabel!
 @IBOutlet weak var importerButton: UIButton!
 @IBOutlet weak var cameraUseButton: UIButton!
 
@@ -56,7 +55,7 @@ class cv {
   let uni = cv()
     let lineShape = CAShapeLayer()
   let values = UILabel()
-  let crossHair = UILabel()
+  let crossHair =  UIImageView()
   let extractorButton = UIButton()
 
 
@@ -75,14 +74,15 @@ class cv {
       cameraUseButton.layer.masksToBounds = true
       cameraUseButton.layer.cornerRadius = 15
     
-    color.layer.masksToBounds = true
-    color.layer.cornerRadius = 15
-    color.text = "SAVE"
-    
+   
     myImageView.image = #imageLiteral(resourceName: "color wheel-1")
+    myImageView.backgroundColor = .clear
+    myImageView.isOpaque = true
     extractorButton.frame = CGRect(x: myImageView.bounds.maxX / 2 , y: myImageView.bounds.maxY * 0.85 , width: 50, height: 50)
     extractorButton.backgroundColor = .clear
     self.view.addSubview(extractorButton)
+    
+    crossHair.image = #imageLiteral(resourceName: "crosshair")
     
     //circular part of the extractor button
     let linePath = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
@@ -93,15 +93,14 @@ class cv {
      self.view.layer.insertSublayer(lineShape, at: 1)
 }
 /// Adds a draggable label which cointains the marker . We use the cross emojticon here for  marking
+//UPDATE : made the CrossHair PNG based so we could get cooler ones
+
 func addCrosshair()
-{  crossHair.frame =   CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.height/2-20, width: 40, height: 40)
+{  crossHair.frame =   CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.height/2-20, width: 100, height: 100)
   if uni.ranOnce == false {
      uni.ranOnce = true
-        crossHair.backgroundColor = UIColor.clear
-        crossHair.text = "╳"
-        crossHair.font = crossHair.font.withSize(35)
-     crossHair.textAlignment = NSTextAlignment.center
-        self.view.addSubview(crossHair)
+  crossHair.backgroundColor = .clear
+         self.view.addSubview(crossHair)
         crossHair.isUserInteractionEnabled = true
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(ViewController.colorFinderFunction(_:)))
         crossHair.addGestureRecognizer(gesture)
@@ -218,8 +217,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    
           discoveredColor = image?.pixel(point: cgp2, sourceView: myImageView)
          valueDisplayer(discoveredColor ?? UIColor.black)
-         color.backgroundColor = UIColor(cgColor: discoveredColor?.cgColor ?? CGColor.init(srgbRed: 0, green: 0, blue: 0, alpha: 1))
-         lineShape.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
+          lineShape.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
 
            }
           img()

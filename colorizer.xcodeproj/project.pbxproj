@@ -14,6 +14,7 @@
 		A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27B380A23D5758B00898A5D /* Assets.xcassets */; };
 		A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */; };
 		A27B381823D5783D00898A5D /* liveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B381723D5783D00898A5D /* liveViewController.swift */; };
+		A27F51F323D76F9D00BAB78D /* sliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27F51F223D76F9D00BAB78D /* sliderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A27B380D23D5758B00898A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A27B380F23D5758B00898A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27B381723D5783D00898A5D /* liveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveViewController.swift; sourceTree = "<group>"; };
+		A27F51F223D76F9D00BAB78D /* sliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				A27B380523D5758400898A5D /* halfAliveViewController.swift */,
 				A27B380723D5758400898A5D /* Main.storyboard */,
 				A27B381723D5783D00898A5D /* liveViewController.swift */,
+				A27F51F223D76F9D00BAB78D /* sliderViewController.swift */,
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
 				A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */,
 				A27B380F23D5758B00898A5D /* Info.plist */,
@@ -145,6 +148,7 @@
 			files = (
 				A27B380623D5758400898A5D /* halfAliveViewController.swift in Sources */,
 				A27B380223D5758400898A5D /* AppDelegate.swift in Sources */,
+				A27F51F323D76F9D00BAB78D /* sliderViewController.swift in Sources */,
 				A27B381823D5783D00898A5D /* liveViewController.swift in Sources */,
 				A27B380423D5758400898A5D /* SceneDelegate.swift in Sources */,
 			);
