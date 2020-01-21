@@ -14,7 +14,6 @@
 		A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27B380A23D5758B00898A5D /* Assets.xcassets */; };
 		A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */; };
 		A27B381823D5783D00898A5D /* liveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B381723D5783D00898A5D /* liveViewController.swift */; };
-		A27D9B3223D5BA49006CEC19 /* color wheel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A27D9B3123D5BA49006CEC19 /* color wheel.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		A27B380D23D5758B00898A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A27B380F23D5758B00898A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27B381723D5783D00898A5D /* liveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveViewController.swift; sourceTree = "<group>"; };
-		A27D9B3123D5BA49006CEC19 /* color wheel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "color wheel.jpg"; path = "../../color wheel.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				A27B380123D5758400898A5D /* AppDelegate.swift */,
 				A27B380323D5758400898A5D /* SceneDelegate.swift */,
 				A27B380523D5758400898A5D /* halfAliveViewController.swift */,
-				A27D9B3123D5BA49006CEC19 /* color wheel.jpg */,
 				A27B380723D5758400898A5D /* Main.storyboard */,
 				A27B381723D5783D00898A5D /* liveViewController.swift */,
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
@@ -135,7 +132,6 @@
 			files = (
 				A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */,
 				A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */,
-				A27D9B3223D5BA49006CEC19 /* color wheel.jpg in Resources */,
 				A27B380923D5758400898A5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

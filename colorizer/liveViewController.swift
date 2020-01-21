@@ -131,7 +131,7 @@ let queue = DispatchQueue(label: "com.camera.video.queue")
         // 将音视频采集会话的预设设置为高分辨率照片--选择照片分辨率
         self.captureSession.sessionPreset = AVCaptureSession.Preset.hd1280x720
         // 获取设备
-      //  let devisf AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front)
+        
 
         let devis = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
         self.backFacingCamera = devis
