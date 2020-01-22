@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A278CB2723D890D60093CBC2 /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = A278CB2623D890D60093CBC2 /* ntc.js */; };
+		A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278CB2823D890EF0093CBC2 /* NameOfColor.swift */; };
 		A27B380223D5758400898A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B380123D5758400898A5D /* AppDelegate.swift */; };
 		A27B380423D5758400898A5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B380323D5758400898A5D /* SceneDelegate.swift */; };
 		A27B380623D5758400898A5D /* halfAliveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B380523D5758400898A5D /* halfAliveViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A278CB2623D890D60093CBC2 /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
+		A278CB2823D890EF0093CBC2 /* NameOfColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOfColor.swift; sourceTree = "<group>"; };
 		A27B37FE23D5758400898A5D /* colorizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colorizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27B380123D5758400898A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A27B380323D5758400898A5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,9 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A278CB2523D890460093CBC2 /* extra filees */ = {
+			isa = PBXGroup;
+			children = (
+				A278CB2623D890D60093CBC2 /* ntc.js */,
+			);
+			path = "extra filees";
+			sourceTree = "<group>";
+		};
 		A27B37F523D5758400898A5D = {
 			isa = PBXGroup;
 			children = (
+				A278CB2523D890460093CBC2 /* extra filees */,
 				A27B380023D5758400898A5D /* colorizer */,
 				A27B37FF23D5758400898A5D /* Products */,
 			);
@@ -68,6 +81,7 @@
 				A27B380723D5758400898A5D /* Main.storyboard */,
 				A27B381723D5783D00898A5D /* liveViewController.swift */,
 				A27F51F223D76F9D00BAB78D /* sliderViewController.swift */,
+				A278CB2823D890EF0093CBC2 /* NameOfColor.swift */,
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
 				A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */,
 				A27B380F23D5758B00898A5D /* Info.plist */,
@@ -135,6 +149,7 @@
 			files = (
 				A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */,
 				A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */,
+				A278CB2723D890D60093CBC2 /* ntc.js in Resources */,
 				A27B380923D5758400898A5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27B380623D5758400898A5D /* halfAliveViewController.swift in Sources */,
+				A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */,
 				A27B380223D5758400898A5D /* AppDelegate.swift in Sources */,
 				A27F51F323D76F9D00BAB78D /* sliderViewController.swift in Sources */,
 				A27B381823D5783D00898A5D /* liveViewController.swift in Sources */,

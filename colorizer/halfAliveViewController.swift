@@ -6,6 +6,7 @@
 //  Copyright © 2020 Nandan. All rights reserved.
 //
 var discoveredColor : UIColor?
+var discoveredColorName : String? = "No Name"
 import UIKit
 extension NSMutableAttributedString {
 
@@ -57,7 +58,7 @@ class cv {
   let values = UILabel()
   let crossHair =  UIImageView()
   let extractorButton = UIButton()
-
+  let nameOfColor = UILabel()
 
 
  
@@ -86,11 +87,19 @@ class cv {
     
     //circular part of the extractor button
     let linePath = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
-    lineShape.frame = CGRect(x: myImageView.bounds.maxX / 2  - 20 , y: myImageView.bounds.maxY * 0.85 , width: 50, height: 50)
+    lineShape.frame = CGRect(x: myImageView.bounds.maxX / 2  - 20 , y: (myImageView.bounds.maxY * 0.85) + 10 , width: 50, height: 50)
     lineShape.lineWidth = 3
     lineShape.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
     lineShape.path = linePath.cgPath
      self.view.layer.insertSublayer(lineShape, at: 1)
+    
+    // label for name of the colour that will be detected
+    nameOfColor.frame = CGRect(x: 0   , y: myImageView.bounds.maxY * 0.85 - 20 , width: self.view.bounds.maxX , height: 20)
+    nameOfColor.textColor = .label
+    nameOfColor.textAlignment = .center
+    nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
+    nameOfColor.text = discoveredColor?.name
+    self.view.addSubview(nameOfColor)
 }
 /// Adds a draggable label which cointains the marker . We use the cross emojticon here for  marking
 //UPDATE : made the CrossHair PNG based so we could get cooler ones
@@ -218,6 +227,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
           discoveredColor = image?.pixel(point: cgp2, sourceView: myImageView)
          valueDisplayer(discoveredColor ?? UIColor.black)
           lineShape.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
+         nameOfColor.text = discoveredColor?.name
 
            }
           img()
