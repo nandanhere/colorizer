@@ -21,6 +21,9 @@ var backFacingCamera: AVCaptureDevice?
 var currentDevice: AVCaptureDevice?
 
 let values = UILabel()
+let extractorButton = UIButton()
+let nameOfColor = UILabel()
+let extractorButtonShell = CAShapeLayer()
 
 
 func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -80,45 +83,61 @@ self.view.addSubview(values)
         self.view.backgroundColor = color
     valueDisplayer(color ?? UIColor.black)
      
-        self.lineShape.strokeColor = color?.cgColor
+        self.circularCrosshair.strokeColor = color?.cgColor
     }
     
 }
 
 let previewLayer = CALayer()
-let lineShape = CAShapeLayer()
+let circularCrosshair = CAShapeLayer()
 
 func setupUI() {
+    
+ 
+// circular shaped button which will give user op
+extractorButton.frame = CGRect(x: self.view.bounds.maxX / 2 - 20 , y: (self.view.bounds.maxY * 0.85) + 10 , width: 70, height: 70)
+   extractorButton.backgroundColor = .clear
+   extractorButton.layer.masksToBounds = true
+   extractorButton.layer.cornerRadius = 40
+   self.view.addSubview(extractorButton)
+
+//circular part of the extractor button
+let linePathOfButton = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+extractorButtonShell.frame = CGRect(x:( self.view.bounds.maxX / 2 ) - 20 , y: (self.view.bounds.maxY * 0.85) + 10 , width: 50, height: 50)
+extractorButtonShell.lineWidth = 3
+extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
+extractorButtonShell.path = linePathOfButton.cgPath
+ self.view.layer.insertSublayer(extractorButtonShell, at: 1)
+
     previewLayer.bounds = CGRect(x: 0, y: 0, width: WIDTH-30, height: WIDTH-30)
     previewLayer.position = view.center
-previewLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
+    previewLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
     previewLayer.masksToBounds = true
     previewLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)))
     view.layer.insertSublayer(previewLayer, at: 0)
     
-    //圆环
-    let linePath = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 40, height: 40))
-    lineShape.frame = CGRect.init(x: WIDTH/2-20, y:HEIGHT/2-20, width: 40, height: 40)
-    lineShape.lineWidth = 5
-    lineShape.strokeColor = UIColor.red.cgColor
-    lineShape.path = linePath.cgPath
-    lineShape.fillColor = UIColor.clear.cgColor
-    self.view.layer.insertSublayer(lineShape, at: 1)
+    //Sets the Values for the Circular crosshair
+    let linePathOfCC = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+    circularCrosshair.frame = CGRect.init(x: WIDTH/2-20, y:HEIGHT/2-20, width: 40, height: 40)
+    circularCrosshair.lineWidth = 5
+    circularCrosshair.strokeColor = UIColor.red.cgColor
+    circularCrosshair.path = linePathOfCC.cgPath
+    circularCrosshair.fillColor = UIColor.clear.cgColor
+    self.view.layer.insertSublayer(circularCrosshair, at: 1)
     
-    //圆点
-    let linePath1 = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 8, height: 8))
-    let lineShape1 = CAShapeLayer()
-    lineShape1.frame = CGRect.init(x: WIDTH/2-4, y:HEIGHT/2-4, width: 8, height: 8)
-    lineShape1.path = linePath1.cgPath
-    lineShape1.fillColor = UIColor.init(white: 0.7, alpha: 0.5).cgColor
-    self.view.layer.insertSublayer(lineShape1, at: 1)
+    //Inner circle inside the Circular crosshair
+    let linePathInsideCC = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 8, height: 8))
+    let lineShapeInsideCC = CAShapeLayer()
+    lineShapeInsideCC.frame = CGRect.init(x: WIDTH/2-4, y:HEIGHT/2-4, width: 8, height: 8)
+    lineShapeInsideCC.path = linePathInsideCC.cgPath
+    lineShapeInsideCC.fillColor = UIColor.init(white: 0.7, alpha: 0.5).cgColor
+    self.view.layer.insertSublayer(lineShapeInsideCC, at: 1)
 }
 
     override func viewDidLoad() {
         super.viewDidLoad()
                 setupUI()
-               //获取设备，创建UI
-               self.CreateUI()
+                self.CreateUI()
         // Do any additional setup after loading the view.
     }
 

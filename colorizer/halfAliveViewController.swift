@@ -54,11 +54,14 @@ class cv {
      var zoomer : CGFloat = 1.0
   }
   let uni = cv()
-    let lineShape = CAShapeLayer()
-  let values = UILabel()
-  let crossHair =  UIImageView()
-  let extractorButton = UIButton()
-  let nameOfColor = UILabel()
+
+
+
+  let values = UILabel() // Displays the values of the RGB components
+  let crossHair =  UIImageView() // crosshair that is draggable
+    let extractorButton = UIButton() // pressing the button will copy the info of the color to the clipboard of user
+   let extractorButtonShell = CAShapeLayer() // Circular shape which is the "shell " for the extractor button
+   let nameOfColor = UILabel() // Displays the Cataloged name of the color
 
 
  
@@ -79,26 +82,31 @@ class cv {
     myImageView.image = #imageLiteral(resourceName: "color wheel-1")
     myImageView.backgroundColor = .clear
     myImageView.isOpaque = true
-    extractorButton.frame = CGRect(x: myImageView.bounds.maxX / 2 , y: myImageView.bounds.maxY * 0.85 , width: 50, height: 50)
+    
+    // circular shaped button which will give user op
+    extractorButton.frame = CGRect(x: myImageView.bounds.maxX / 2 - 20 , y: (myImageView.bounds.maxY * 0.85) + 10 , width: 70, height: 70)
     extractorButton.backgroundColor = .clear
+    extractorButton.layer.masksToBounds = true
+    extractorButton.layer.cornerRadius = 40
     self.view.addSubview(extractorButton)
     
     crossHair.image = #imageLiteral(resourceName: "crosshair")
-    
+ 
     //circular part of the extractor button
     let linePath = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
-    lineShape.frame = CGRect(x: myImageView.bounds.maxX / 2  - 20 , y: (myImageView.bounds.maxY * 0.85) + 10 , width: 50, height: 50)
-    lineShape.lineWidth = 3
-    lineShape.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
-    lineShape.path = linePath.cgPath
-     self.view.layer.insertSublayer(lineShape, at: 1)
+    extractorButtonShell.frame = CGRect(x: myImageView.bounds.maxX / 2  - 20 , y: (myImageView.bounds.maxY * 0.85) + 10 , width: 50, height: 50)
+    extractorButtonShell.lineWidth = 3
+    extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
+    extractorButtonShell.path = linePath.cgPath
+     self.view.layer.insertSublayer(extractorButtonShell, at: 1)
     
     // label for name of the colour that will be detected
-    nameOfColor.frame = CGRect(x: 0   , y: myImageView.bounds.maxY * 0.85 - 20 , width: self.view.bounds.maxX , height: 20)
+    nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: myImageView.bounds.maxY * 0.85 - 20 , width: 300 , height: 20)
     nameOfColor.textColor = .label
     nameOfColor.textAlignment = .center
     nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
     nameOfColor.text = discoveredColor?.name
+    nameOfColor.backgroundColor = .clear
     self.view.addSubview(nameOfColor)
 }
 /// Adds a draggable label which cointains the marker . We use the cross emojticon here for  marking
@@ -127,9 +135,7 @@ let image = UIImagePickerController()
   addCrosshair()
 Scroll.zoomScale = 1
 myImageView.contentMode = .scaleAspectFit
-if uni.ranOnce {
-crossHair.frame = CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.height/2-20, width: 40, height: 40)
- }
+ 
 
 }
 
@@ -172,27 +178,30 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    @objc func colorFinderFunction(_ gesture : UIPanGestureRecognizer) {
        let orignalCenter = CGPoint(x: self.myImageView.bounds.width/2, y: self.myImageView.bounds.height/2)
        let translation = gesture.translation(in: self.myImageView)
-       let label = gesture.view!
+       let crosshairGesture = gesture.view!
        
      
             if uni.zoomer == 0 { uni.zoomer = 1}
-     label.center = CGPoint(x: label.center.x + ( translation.x *  uni.zoomer), y: label.center.y + ( translation.y *  uni.zoomer ))
+     crosshairGesture.center = CGPoint(x: crosshairGesture.center.x + ( translation.x *  uni.zoomer), y: crosshairGesture.center.y + ( translation.y *  uni.zoomer ))
      gesture.setTranslation(CGPoint.zero, in: self.myImageView)
      
      
  
   
-     if label.center.x >= myImageView.bounds.maxX || label.center.x <= myImageView.bounds.minX || label.center.y >= myImageView.bounds.maxY || label.center.y <= myImageView.bounds.minY {
-           label.center = orignalCenter
+     if crosshairGesture.center.x >= myImageView.bounds.maxX || crosshairGesture.center.x <= ( myImageView.bounds.minX + 25 ) || crosshairGesture.center.y >=
+     
+     myImageView.bounds.maxY  || crosshairGesture.center.y <= myImageView.bounds.minY || extractorButton.frame.contains(crosshairGesture.center) || values.frame.contains(crosshairGesture.center) {
+           crosshairGesture.center = orignalCenter
        }
+    
 
      let zh =  (Scroll.contentSize.width / Scroll.frame.width) //
      let zw =  (Scroll.contentSize.width / Scroll.frame.width)// tells zoom scale of height and width respectively
-     var oh = (Scroll.contentOffset.y +  label.center.y - 20 ) / zh //
-     var ow = (Scroll.contentOffset.x +  label.center.x ) / zw // what are the coordinates of the point when zoomed in
+     var oh = (Scroll.contentOffset.y +  crosshairGesture.center.y  - 25 ) / zh //
+     var ow = (Scroll.contentOffset.x +  crosshairGesture.center.x - 25 ) / zw // what are the coordinates of the point when zoomed in
      if zh == 0 || zw == 0 {
-        oh = Scroll.contentOffset.y +  label.center.y - 20
-        ow = Scroll.contentOffset.x +  label.center.x
+        oh = Scroll.contentOffset.y +  crosshairGesture.center.y - 25
+        ow = Scroll.contentOffset.x +  crosshairGesture.center.x - 25
      }
    
    ///  Sets the values of a label to its specific RGB values
@@ -202,7 +211,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
       let r = Int(color.cgColor.components![0] * 255)
       let g = Int(color.cgColor.components![1] * 255)
       let b = Int(color.cgColor.components![2] * 255)
-       values.backgroundColor = .init(white: 1, alpha: 0.10)
+       values.backgroundColor = .init(white: 1, alpha: 0.3)
     values.frame = CGRect(x: myImageView.bounds.width - 90, y: myImageView.bounds.height / 20, width: 100, height: 60)
       values.layer.cornerRadius = 10
       values.layer.masksToBounds = true
@@ -219,14 +228,14 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    self.view.addSubview(values)
    //end of RGB Showcaser
    }
-    ///Sets the image point for the  pixel function and displays the color accordingly
+    
+   ///Sets the image point for the  pixel function and displays the color accordingly
          func img(){
             let image = myImageView.image
-             let cgp2 =  CGPoint(x: ow  , y: oh  )
-   
-          discoveredColor = image?.pixel(point: cgp2, sourceView: myImageView)
+             let finalPoint =  CGPoint(x: ow  , y: oh  )
+           discoveredColor = image?.pixel(point: finalPoint, sourceView: myImageView)
          valueDisplayer(discoveredColor ?? UIColor.black)
-          lineShape.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
+          extractorButtonShell.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
          nameOfColor.text = discoveredColor?.name
 
            }

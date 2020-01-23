@@ -915,7 +915,7 @@ var ntc = {
 ["A9BDBF", "Tower Gray"],
 ["A9BEF2", "Perano"],
 ["A9C6C2", "Opal"],
-["AA375A", "Night Shadz"],
+["AA375A", "Night Shade"],
 ["AA4203", "Fire"],
 ["AA8B5B", "Muesli"],
 ["AA8D6F", "Sandal"],
