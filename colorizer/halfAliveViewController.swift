@@ -7,6 +7,7 @@
 //
 var discoveredColor : UIColor?
 var discoveredColorName : String? = "No Name"
+var truth = true
 import UIKit
 extension NSMutableAttributedString {
 
@@ -44,8 +45,12 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate , UINav
 @IBOutlet weak var myImageView: UIImageView!
 @IBOutlet weak var importerButton: UIButton!
 @IBOutlet weak var cameraUseButton: UIButton!
+@IBOutlet weak var Switcheroo: UISwitch!
+@IBOutlet weak var Lab: UILabel!
 
-@IBAction func unwindToViewControllerNameHere(segue: UIStoryboardSegue) {
+
+
+@IBAction func unwindToHalfAlive(segue: UIStoryboardSegue) {
     //nothing goes here
 }
 
@@ -59,59 +64,79 @@ class cv {
 
   let values = UILabel() // Displays the values of the RGB components
   let crossHair =  UIImageView() // crosshair that is draggable
-    let extractorButton = UIButton() // pressing the button will copy the info of the color to the clipboard of user
-   let extractorButtonShell = CAShapeLayer() // Circular shape which is the "shell " for the extractor button
+    let extractorButton = UIButton() // pressing the button will open a view which allows user to explore the color
+   let extractorButtonShell = CAShapeLayer() // Circular shape which is the "shell " for the buffer button
    let nameOfColor = UILabel() // Displays the Cataloged name of the color
 
+func addCircularButton()
+{
+// circular shaped button which will give user op
+      extractorButton.frame = CGRect(x: self.view.bounds.maxX / 2 -  35 , y: (self.view.bounds.maxY * 0.85) - 35, width: 70, height: 70)
+      extractorButton.backgroundColor = .clear
+      extractorButton.layer.masksToBounds = true
+      extractorButton.layer.cornerRadius = 40
+      self.view.addSubview(extractorButton)
+      extractorButton.addTarget(self, action: #selector(ViewController.goToResultBuffer(_:)), for: .touchUpInside)
 
+      
+
+      //circular part of the extractor button
+      let linePath = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+      extractorButtonShell.frame = CGRect(x: self.view.bounds.maxX / 2  - 35 , y: (self.view.bounds.maxY * 0.85) - 35, width: 50, height: 50)
+      extractorButtonShell.lineWidth = 3
+      extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
+      extractorButtonShell.path = linePath.cgPath
+       self.view.layer.insertSublayer(extractorButtonShell, at: 1)
+}
  
+func setupUI(){
+Scroll.delegate = self
+       Scroll.minimumZoomScale = 1.0
+       Scroll.maximumZoomScale = 100.0
+     addCrosshair()
+     
+     importerButton.layer.masksToBounds = true
+     importerButton.layer.cornerRadius = 15
+     
+     cameraUseButton.layer.masksToBounds = true
+     cameraUseButton.layer.cornerRadius = 15
+ 
+   myImageView.image = #imageLiteral(resourceName: "color wheel-1")
+   myImageView.backgroundColor = .clear
+   myImageView.isOpaque = true
+
+   crossHair.image = #imageLiteral(resourceName: "crosshair")
+
+   
+   // label for name of the colour that will be detected
+   nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: myImageView.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
+   nameOfColor.textColor = .label
+   nameOfColor.textAlignment = .center
+   nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
+   nameOfColor.text = discoveredColor?.name
+   nameOfColor.backgroundColor = .clear
+   self.view.addSubview(nameOfColor)
+}
     override func viewDidLoad() {
         super.viewDidLoad()
-        Scroll.delegate = self
-        Scroll.minimumZoomScale = 1.0
-        Scroll.maximumZoomScale = 100.0
-      addCrosshair()
-      
-      importerButton.layer.masksToBounds = true
-      importerButton.layer.cornerRadius = 15
-      
-      cameraUseButton.layer.masksToBounds = true
-      cameraUseButton.layer.cornerRadius = 15
+         setupUI()
+        addCircularButton()
     
-   
-    myImageView.image = #imageLiteral(resourceName: "color wheel-1")
-    myImageView.backgroundColor = .clear
-    myImageView.isOpaque = true
-    
-    // circular shaped button which will give user op
-    extractorButton.frame = CGRect(x: myImageView.bounds.maxX / 2 - 20 , y: (myImageView.bounds.maxY * 0.85) + 10 , width: 70, height: 70)
-    extractorButton.backgroundColor = .clear
-    extractorButton.layer.masksToBounds = true
-    extractorButton.layer.cornerRadius = 40
-    self.view.addSubview(extractorButton)
-    
-    crossHair.image = #imageLiteral(resourceName: "crosshair")
- 
-    //circular part of the extractor button
-    let linePath = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
-    extractorButtonShell.frame = CGRect(x: myImageView.bounds.maxX / 2  - 20 , y: (myImageView.bounds.maxY * 0.85) + 10 , width: 50, height: 50)
-    extractorButtonShell.lineWidth = 3
-    extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
-    extractorButtonShell.path = linePath.cgPath
-     self.view.layer.insertSublayer(extractorButtonShell, at: 1)
-    
-    // label for name of the colour that will be detected
-    nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: myImageView.bounds.maxY * 0.85 - 20 , width: 300 , height: 20)
-    nameOfColor.textColor = .label
-    nameOfColor.textAlignment = .center
-    nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
-    nameOfColor.text = discoveredColor?.name
-    nameOfColor.backgroundColor = .clear
-    self.view.addSubview(nameOfColor)
 }
+
+
+
+/// Click on this to go to the Buffer view which will show you colors and save them later
+/// - Parameter sender: Circular button declared earlier
+@objc func goToResultBuffer(_ sender:UIButton)
+{
+performSegue(withIdentifier: "halfAliveToBuffer", sender: nil)
+}
+
+
+
 /// Adds a draggable label which cointains the marker . We use the cross emojticon here for  marking
 //UPDATE : made the CrossHair PNG based so we could get cooler ones
-
 func addCrosshair()
 {  crossHair.frame =   CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.height/2-20, width: 100, height: 100)
   if uni.ranOnce == false {
@@ -153,6 +178,9 @@ crossHair.frame = CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.heig
  }
 }
 
+@IBAction func truthChanger(_ sender: Any) {
+truth = Switcheroo.isOn
+}
 
 func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
@@ -163,7 +191,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
     self.dismiss(animated: true, completion: nil)
 }
 
-/// returns the View once the iser has piched or dragged on the VIew
+/// returns the View once the user has piched or dragged on the VIew
 /// - Parameter Scroll: Scroll is the view which allows the gesture implementation on UIVIew
  func viewForZooming(in Scroll : UIScrollView) -> UIView? {
   uni.zoomer = max(Scroll.contentSize.height / Scroll.frame.height, Scroll.contentSize.width / Scroll.frame.width)
@@ -208,23 +236,46 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    /// - Parameter color: The color extracted in the image function is sent here so that the user can acess its data on top right corner
    func valueDisplayer(_ color : UIColor) {
    // Start of the RGB ShowCaser
-      let r = Int(color.cgColor.components![0] * 255)
-      let g = Int(color.cgColor.components![1] * 255)
-      let b = Int(color.cgColor.components![2] * 255)
+      
        values.backgroundColor = .init(white: 1, alpha: 0.3)
     values.frame = CGRect(x: myImageView.bounds.width - 90, y: myImageView.bounds.height / 20, width: 100, height: 60)
       values.layer.cornerRadius = 10
       values.layer.masksToBounds = true
    values.numberOfLines = 3
-   let stringValue = "Red   : \(r) \rGreen : \(g)\rBlue  : \(b)"
+   values.lineBreakMode = .byWordWrapping
+   values.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
    values.textAlignment = .left
+
+
+   
+   if Switcheroo.isOn {
+   // if the switch is taken for rgb values
+   let r = Int(color.cgColor.components![0] * 255)
+   let g = Int(color.cgColor.components![1] * 255)
+   let b = Int(color.cgColor.components![2] * 255)
+   let stringValue = "Red   : \(r) \rGreen : \(g)\rBlue  : \(b)"
    let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
    attributedString.setColor(color: UIColor.red, forText: "Red   : \(r) \r")
    attributedString.setColor(color: UIColor.green, forText:  "Green : \(g)\r")
    attributedString.setColor(color: UIColor.systemBlue, forText: "Blue  : \(b)")
-      values.lineBreakMode = .byWordWrapping
-      values.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-      values.attributedText = attributedString
+      
+   values.attributedText = attributedString }
+   
+   else
+   { // if the switch is taken for HSB values
+   let hs = discoveredColor?.hsba
+   let h = Double((hs?.hue)!)
+   let b = Double((hs?.brightness)!)
+   let s = Double((hs?.saturation)!)
+   let stringValue = "Hue   : \((360 * h).rounded()) \rSat : \((1000 * s).rounded()/1000)\rBrt  : \((1000 * b).rounded()/1000)"
+   let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
+   attributedString.setColor(color: UIColor.red, forText: "Hue   : \((1000 * h).rounded()/1000) \r")
+   attributedString.setColor(color: UIColor.green, forText:  "Sat : \((1000 * b).rounded()/1000)\r")
+   attributedString.setColor(color: UIColor.systemBlue, forText: "Brt  : \((1000 * s).rounded()/1000)")
+       values.attributedText = attributedString
+   }
+   
+   
    self.view.addSubview(values)
    //end of RGB Showcaser
    }
@@ -237,6 +288,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
          valueDisplayer(discoveredColor ?? UIColor.black)
           extractorButtonShell.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
          nameOfColor.text = discoveredColor?.name
+         Lab.text = discoveredColor?.hexString
 
            }
           img()

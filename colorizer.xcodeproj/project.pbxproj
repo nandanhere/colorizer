@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A274204323DC72D6005AD9E0 /* dataBufferPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A274204223DC72D6005AD9E0 /* dataBufferPage.swift */; };
 		A278CB2723D890D60093CBC2 /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = A278CB2623D890D60093CBC2 /* ntc.js */; };
 		A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278CB2823D890EF0093CBC2 /* NameOfColor.swift */; };
 		A27B380223D5758400898A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B380123D5758400898A5D /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A274204223DC72D6005AD9E0 /* dataBufferPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataBufferPage.swift; sourceTree = "<group>"; };
 		A278CB2623D890D60093CBC2 /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
 		A278CB2823D890EF0093CBC2 /* NameOfColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOfColor.swift; sourceTree = "<group>"; };
 		A27B37FE23D5758400898A5D /* colorizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colorizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 				A27B380523D5758400898A5D /* halfAliveViewController.swift */,
 				A27B380723D5758400898A5D /* Main.storyboard */,
 				A27B381723D5783D00898A5D /* liveViewController.swift */,
+				A274204223DC72D6005AD9E0 /* dataBufferPage.swift */,
 				A27F51F223D76F9D00BAB78D /* sliderViewController.swift */,
 				A278CB2823D890EF0093CBC2 /* NameOfColor.swift */,
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
@@ -164,6 +167,7 @@
 				A27B380623D5758400898A5D /* halfAliveViewController.swift in Sources */,
 				A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */,
 				A27B380223D5758400898A5D /* AppDelegate.swift in Sources */,
+				A274204323DC72D6005AD9E0 /* dataBufferPage.swift in Sources */,
 				A27F51F323D76F9D00BAB78D /* sliderViewController.swift in Sources */,
 				A27B381823D5783D00898A5D /* liveViewController.swift in Sources */,
 				A27B380423D5758400898A5D /* SceneDelegate.swift in Sources */,

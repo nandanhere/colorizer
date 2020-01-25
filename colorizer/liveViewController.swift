@@ -25,6 +25,10 @@ let extractorButton = UIButton()
 let nameOfColor = UILabel()
 let extractorButtonShell = CAShapeLayer()
 
+@IBAction func unwindToLive(segue: UIStoryboardSegue) {
+    //nothing goes here
+}
+
 
 func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
@@ -95,7 +99,7 @@ func setupUI() {
     
  
 // circular shaped button which will give user op
-extractorButton.frame = CGRect(x: self.view.bounds.maxX / 2 - 20 , y: (self.view.bounds.maxY * 0.85) + 10 , width: 70, height: 70)
+extractorButton.frame = CGRect(x: self.view.bounds.maxX / 2 - 35 , y: (self.view.bounds.maxY * 0.85) - 35 , width: 70, height: 70)
    extractorButton.backgroundColor = .clear
    extractorButton.layer.masksToBounds = true
    extractorButton.layer.cornerRadius = 40
@@ -103,11 +107,13 @@ extractorButton.frame = CGRect(x: self.view.bounds.maxX / 2 - 20 , y: (self.view
 
 //circular part of the extractor button
 let linePathOfButton = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 70, height: 70))
-extractorButtonShell.frame = CGRect(x:( self.view.bounds.maxX / 2 ) - 20 , y: (self.view.bounds.maxY * 0.85) + 10 , width: 50, height: 50)
+extractorButtonShell.frame = CGRect(x:( self.view.bounds.maxX / 2 ) - 35 , y: (self.view.bounds.maxY * 0.85) - 35, width: 50, height: 50)
 extractorButtonShell.lineWidth = 3
 extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
 extractorButtonShell.path = linePathOfButton.cgPath
  self.view.layer.insertSublayer(extractorButtonShell, at: 1)
+extractorButton.addTarget(self, action: #selector(liveViewController.goToResultBuffer(_:)), for: .touchUpInside)
+
 
     previewLayer.bounds = CGRect(x: 0, y: 0, width: WIDTH-30, height: WIDTH-30)
     previewLayer.position = view.center
@@ -140,6 +146,17 @@ extractorButtonShell.path = linePathOfButton.cgPath
                 self.CreateUI()
         // Do any additional setup after loading the view.
     }
+
+
+
+@objc func goToResultBuffer(_ sender:UIButton)
+{
+performSegue(withIdentifier: "liveToBuffer", sender: nil)
+}
+
+
+
+
 
 let queue = DispatchQueue(label: "com.camera.video.queue")
 
