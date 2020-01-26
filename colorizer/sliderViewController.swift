@@ -31,6 +31,8 @@ var GreenColor : Float = 0
 var Hue : Double = 0
 var Saturation : Float = 0
 var Brightness : Float = 0
+
+var tempColor : UIColor!
 @IBAction func unwindToSlider(segue: UIStoryboardSegue) {
     //nothing goes here
 }
@@ -63,6 +65,58 @@ func addCircularButton()
        
      changeToColorType()
      }
+
+
+
+override func viewDidAppear(_ animated: Bool) {
+discoveredColor = tempColor
+Display.text = discoveredColor?.name
+Display.backgroundColor = discoveredColor
+hexValue.text = discoveredColor?.hexString
+halfAliveToSlider()
+}
+
+func halfAliveToSlider()
+{ if  truth
+{
+let color = discoveredColor?.components
+ 
+RedColor = Float(((color?.red ?? 0.5) * 255).rounded())
+GreenColor = Float(((color?.green ?? 0.5) * 255).rounded())
+BlueColor = Float(((color?.blue ?? 0.5) * 255).rounded())
+redType.text = "\(RedColor)"
+greenType.text = "\(GreenColor)"
+blueType.text = "\(BlueColor)"
+
+}
+else
+{
+Hue = Double(discoveredColor?.hsba.hue ?? 0.5)
+Saturation = Float(Double(discoveredColor?.hsba.saturation ?? 0.5))
+Brightness = Float(Double(discoveredColor?.hsba.brightness ?? 0.5))
+
+redType.text = "\(Hue)"
+greenType.text = "\(Saturation)"
+blueType.text = "\(Brightness)"
+
+}
+ 
+selfInputButton(self)
+
+}
+
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+if let dataBufferPage = segue.destination as? dataBufferPage
+{
+dataBufferPage.tempColor = discoveredColor
+}
+else
+{
+return
+}
+}
+
+
 
 @objc func goToResultBuffe(_ sender : UIButton)
 {

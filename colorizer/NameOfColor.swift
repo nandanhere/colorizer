@@ -42,7 +42,25 @@ var hsba: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloa
 }
 }
 
-
+extension UIColor {
+    var coreImageColor: CIColor {
+        return CIColor(color: self)
+    }
+    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        let color = coreImageColor
+        return (color.red, color.green, color.blue, color.alpha)
+    }
+}
+extension UIColor
+{
+    var isDarkColor: Bool {
+        var r, g, b, a: CGFloat
+        (r, g, b, a) = (0, 0, 0, 0)
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        let lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        return  lum < 0.50 ? true : false
+    }
+}
 extension UIColor {
     var name: String {
         get {

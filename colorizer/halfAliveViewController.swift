@@ -6,7 +6,6 @@
 //  Copyright © 2020 Nandan. All rights reserved.
 //
 var discoveredColor : UIColor?
-var discoveredColorName : String? = "No Name"
 var truth = true
 import UIKit
 extension NSMutableAttributedString {
@@ -117,13 +116,33 @@ Scroll.delegate = self
    nameOfColor.backgroundColor = .clear
    self.view.addSubview(nameOfColor)
 }
-    override func viewDidLoad() {
+
+
+  
+     override func viewDidLoad() {
         super.viewDidLoad()
          setupUI()
         addCircularButton()
     
 }
 
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+if let sliderViewController = segue.destination as? sliderViewController
+{
+sliderViewController.tempColor = discoveredColor
+}
+else
+{
+if let dataBufferPage = segue.destination as? dataBufferPage
+{
+dataBufferPage.tempColor = discoveredColor
+}
+else
+{
+return
+}
+}
+}
 
 
 /// Click on this to go to the Buffer view which will show you colors and save them later
