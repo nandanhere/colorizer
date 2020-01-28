@@ -27,52 +27,59 @@ var tempColor : UIColor!
 
 func setupUI()
 {
-let c1 : UIColor = UIColor(red: discoveredColor?.coreImageColor.red ?? 0.5, green: (1 - (discoveredColor?.coreImageColor.green ?? 0.5) ), blue: (1 - (discoveredColor?.coreImageColor.blue ?? 0.5)), alpha: 1)
+//Complementary
+let c1 : UIColor = UIColor(red:( 1 -  (discoveredColor?.coreImageColor.red ?? 0.5)), green: (1 - (discoveredColor?.coreImageColor.green ?? 0.5) ), blue: (1 - (discoveredColor?.coreImageColor.blue ?? 0.5)), alpha: 1)
  
 b1.clipsToBounds = true
-b1.layer.cornerRadius = 40
+b1.layer.cornerRadius = 10
 b1.backgroundColor = c1
 b1.setTitle(c1.name, for: .normal)
 b1.setTitleColor(c1.isDarkColor == true ? .white : .black, for: .normal)
 l1.text = c1.hexString
 
+
+//Real Color
 b2.clipsToBounds = true
-b2.layer.cornerRadius = 40
+b2.layer.cornerRadius = 10
 b2.backgroundColor = discoveredColor
 b2.setTitle(discoveredColor?.name, for: .normal)
 b1.setTitleColor(discoveredColor?.isDarkColor == true ? .white : .black, for: .normal)
 l2.text = discoveredColor?.hexString
 
 
-let c3 : UIColor = UIColor(red: 1 - (discoveredColor?.coreImageColor.red ?? 0.5) , green:   (discoveredColor?.coreImageColor.green ?? 0.5)  , blue: (1 - (discoveredColor?.coreImageColor.blue ?? 0.5)), alpha: 1)
+//Monochrome
+let c3 : UIColor = UIColor(red: 0.299 * (discoveredColor?.coreImageColor.red ?? 0.5) , green:   0.587 * (discoveredColor?.coreImageColor.green ?? 0.5)  , blue: (0.114 * (discoveredColor?.coreImageColor.blue ?? 0.5)), alpha: 1)
 b3.clipsToBounds = true
-b3.layer.cornerRadius = 40
+b3.layer.cornerRadius = 10
 b3.backgroundColor = c3
 b3.setTitle(c3.name, for: .normal)
 b3.setTitleColor(c3.isDarkColor == true ? .white : .black, for: .normal)
 l3.text = c3.hexString
 
 
-let c4 : UIColor = UIColor(red: 1 - (discoveredColor?.coreImageColor.red ?? 0.5) , green:   (1 - (discoveredColor?.coreImageColor.green ?? 0.5) )  , blue: (discoveredColor?.coreImageColor.blue ?? 0.5), alpha: 1)
+//Lighter
+let c4 : UIColor = discoveredColor?.lighter() ?? .white
 b4.clipsToBounds = true
-b4.layer.cornerRadius = 40
+b4.layer.cornerRadius = 10
 b4.backgroundColor = c4
 b4.setTitle(c4.name, for: .normal)
 b4.setTitleColor(c4.isDarkColor == true ? .white : .black, for: .normal)
 l4.text = c4.hexString
 
-let c5 : UIColor = UIColor(red: 1 - (discoveredColor?.coreImageColor.red ?? 0.5) , green:   (1 - (discoveredColor?.coreImageColor.green ?? 0.5) )  , blue: (discoveredColor?.coreImageColor.blue ?? 0.5) / 2, alpha: 1)
+//something
+let c5 : UIColor = UIColor(red: 0.5 * (discoveredColor?.coreImageColor.red ?? 0.5) , green:   ( (discoveredColor?.coreImageColor.green ?? 0.5) / 2 )  , blue: 0.5 * (discoveredColor?.coreImageColor.blue ?? 0.5), alpha: 1)
 b5.clipsToBounds = true
-b5.layer.cornerRadius = 40
+b5.layer.cornerRadius = 10
 b5.backgroundColor = c5
 b5.setTitle(c5.name, for: .normal)
 b5.setTitleColor(c5.isDarkColor == true ? .white : .black, for: .normal)
 l5.text = c5.hexString
 
 
-let c6 : UIColor = UIColor(red: 1 - (discoveredColor?.coreImageColor.red ?? 0.5) , green:   ( (discoveredColor?.coreImageColor.green ?? 0.5) / 2 )  , blue: 1 - (discoveredColor?.coreImageColor.blue ?? 0.5), alpha: 1)
+//darker
+let c6 : UIColor = discoveredColor?.darker() ?? .black
 b6.clipsToBounds = true
-b6.layer.cornerRadius = 40
+b6.layer.cornerRadius = 10
 b6.backgroundColor = c6
 b6.setTitle(c6.name, for: .normal)
 b6.setTitleColor(c6.isDarkColor == true ? .white : .black, for: .normal)

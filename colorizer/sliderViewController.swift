@@ -95,7 +95,7 @@ Hue = Double(discoveredColor?.hsba.hue ?? 0.5)
 Saturation = Float(Double(discoveredColor?.hsba.saturation ?? 0.5))
 Brightness = Float(Double(discoveredColor?.hsba.brightness ?? 0.5))
 
-redType.text = "\(Hue)"
+redType.text = "\(Hue * 360)"
 greenType.text = "\(Saturation)"
 blueType.text = "\(Brightness)"
 
