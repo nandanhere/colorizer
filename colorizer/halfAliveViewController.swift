@@ -108,7 +108,7 @@ Scroll.delegate = self
 
    
    // label for name of the colour that will be detected
-   nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: myImageView.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
+nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
    nameOfColor.textColor = .label
    nameOfColor.textAlignment = .center
    nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
@@ -286,11 +286,11 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    let h = Double((hs?.hue)!)
    let b = Double((hs?.brightness)!)
    let s = Double((hs?.saturation)!)
-   let stringValue = "Hue   : \((360 * h).rounded()) \rSat : \((1000 * s).rounded()/1000)\rBrt  : \((1000 * b).rounded()/1000)"
+   let stringValue = "Hue   : \((360 * h).rounded()) \rSat : \((1000 * s).rounded()/10)\rBrt  : \((1000 * b).rounded()/10)"
    let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
-   attributedString.setColor(color: UIColor.red, forText: "Hue   : \((1000 * h).rounded()/1000) \r")
-   attributedString.setColor(color: UIColor.green, forText:  "Sat : \((1000 * b).rounded()/1000)\r")
-   attributedString.setColor(color: UIColor.systemBlue, forText: "Brt  : \((1000 * s).rounded()/1000)")
+   attributedString.setColor(color: UIColor.systemTeal, forText: "Hue   : \((360 * h).rounded()) \r")
+   attributedString.setColor(color: UIColor.systemYellow, forText:  "Sat : \((1000 * s).rounded()/10)\r")
+   attributedString.setColor(color: UIColor.white, forText: "Brt  : \((1000 * b).rounded()/10)")
        values.attributedText = attributedString
    }
    

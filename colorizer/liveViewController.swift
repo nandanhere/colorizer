@@ -14,6 +14,8 @@ let HEIGHT = UIScreen.main.bounds.height
 
 class liveViewController: UIViewController , AVCaptureVideoDataOutputSampleBufferDelegate {
 
+@IBOutlet weak var hexValue: UILabel!
+
 
 // Creates a session which will start capturing  audio and video data
 let captureSession = AVCaptureSession()
@@ -55,27 +57,50 @@ func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBu
     }
     
     
-
+///  Sets the values of a label to its specific RGB values
+/// - Parameter color: The color extracted in the image function is sent here so that the user can acess its data on top right corner
 func valueDisplayer(_ color : UIColor) {
 // Start of the RGB ShowCaser
-   let r = Int(color.cgColor.components![0] * 255)
-   let g = Int(color.cgColor.components![1] * 255)
-   let b = Int(color.cgColor.components![2] * 255)
-   print("Red : \(r)Green : \(g)Blue : \(b)")
-   values.backgroundColor = .init(white: 1, alpha: 0.10)
+   
+    values.backgroundColor = .init(white: 1, alpha: 0.3)
 values.frame = CGRect(x: self.view.bounds.width - 80, y: self.view.bounds.height / 20, width: 100, height: 60)
    values.layer.cornerRadius = 10
    values.layer.masksToBounds = true
 values.numberOfLines = 3
-let stringValue = "Red   : \(r) \rGreen : \(g)\rBlue  : \(b)"
+values.lineBreakMode = .byWordWrapping
+values.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
 values.textAlignment = .left
+
+
+
+if truth {
+// if the switch is taken for rgb values
+let r = Int(color.cgColor.components![0] * 255)
+let g = Int(color.cgColor.components![1] * 255)
+let b = Int(color.cgColor.components![2] * 255)
+let stringValue = "Red   : \(r) \rGreen : \(g)\rBlue  : \(b)"
 let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
 attributedString.setColor(color: UIColor.red, forText: "Red   : \(r) \r")
 attributedString.setColor(color: UIColor.green, forText:  "Green : \(g)\r")
 attributedString.setColor(color: UIColor.systemBlue, forText: "Blue  : \(b)")
-   values.lineBreakMode = .byWordWrapping
-   values.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-   values.attributedText = attributedString
+   
+values.attributedText = attributedString }
+
+else
+{ // if the switch is taken for HSB values
+let hs = discoveredColor?.hsba
+let h = Double((hs?.hue)!)
+let b = Double((hs?.brightness)!)
+let s = Double((hs?.saturation)!)
+let stringValue = "Hue   : \((360 * h).rounded()) \rSat : \((1000 * s).rounded()/1000)\rBrt  : \((1000 * b).rounded()/1000)"
+let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
+attributedString.setColor(color: UIColor.red, forText: "Hue   : \((1000 * h).rounded()/1000) \r")
+attributedString.setColor(color: UIColor.green, forText:  "Sat : \((1000 * b).rounded()/1000)\r")
+attributedString.setColor(color: UIColor.systemBlue, forText: "Brt  : \((1000 * s).rounded()/1000)")
+    values.attributedText = attributedString
+}
+
+
 self.view.addSubview(values)
 //end of RGB Showcaser
 }
@@ -85,6 +110,7 @@ self.view.addSubview(values)
         self.previewLayer.contents = cgImage
         let color = self.previewLayer.pickColor(at: self.center)
         self.view.backgroundColor = color
+        discoveredColor = color
     valueDisplayer(color ?? UIColor.black)
      
         self.circularCrosshair.strokeColor = color?.cgColor
@@ -114,13 +140,21 @@ extractorButtonShell.path = linePathOfButton.cgPath
  self.view.layer.insertSublayer(extractorButtonShell, at: 1)
 extractorButton.addTarget(self, action: #selector(liveViewController.goToResultBuffer(_:)), for: .touchUpInside)
 
+// label for name of the colour that will be detected
+ nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
+ nameOfColor.textColor = .label
+ nameOfColor.textAlignment = .center
+ nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
+ nameOfColor.text = discoveredColor?.name
+ nameOfColor.backgroundColor = .clear
+ self.view.addSubview(nameOfColor)
 
-    previewLayer.bounds = CGRect(x: 0, y: 0, width: WIDTH-30, height: WIDTH-30)
-    previewLayer.position = view.center
-    previewLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
-    previewLayer.masksToBounds = true
-    previewLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)))
-    view.layer.insertSublayer(previewLayer, at: 0)
+  previewLayer.bounds = CGRect(x: 0, y: 0, width: WIDTH-30, height: WIDTH-30)
+   previewLayer.position = view.center
+  previewLayer.contentsGravity = CALayerContentsGravity.resizeAspectFill
+   previewLayer.masksToBounds = true
+ previewLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)))
+  view.layer.insertSublayer(previewLayer, at: 0)
     
     //Sets the Values for the Circular crosshair
     let linePathOfCC = UIBezierPath.init(ovalIn: CGRect.init(x: 0, y: 0, width: 40, height: 40))
@@ -147,8 +181,26 @@ extractorButton.addTarget(self, action: #selector(liveViewController.goToResultB
         // Do any additional setup after loading the view.
     }
 
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+if let sliderViewController = segue.destination as? sliderViewController
+{
+sliderViewController.tempColor = discoveredColor
+}
+else
+{
+if let dataBufferPage = segue.destination as? dataBufferPage
+{
+dataBufferPage.tempColor = discoveredColor
+}
+else
+{
+return
+}
+}
+}
 
-
+/// Click on this to go to the Buffer view which will show you colors and save them later
+/// - Parameter sender: Circular button declared earlier
 @objc func goToResultBuffer(_ sender:UIButton)
 {
 performSegue(withIdentifier: "liveToBuffer", sender: nil)

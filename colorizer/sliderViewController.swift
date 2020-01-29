@@ -28,7 +28,7 @@ var RedColor : Float = 0
 var BlueColor : Float = 0
 var GreenColor : Float = 0
 
-var Hue : Double = 0
+var Hue : Float = 0
 var Saturation : Float = 0
 var Brightness : Float = 0
 
@@ -91,13 +91,13 @@ blueType.text = "\(BlueColor)"
 }
 else
 {
-Hue = Double(discoveredColor?.hsba.hue ?? 0.5)
+Hue = Float(discoveredColor?.hsba.hue ?? 0.5)
 Saturation = Float(Double(discoveredColor?.hsba.saturation ?? 0.5))
 Brightness = Float(Double(discoveredColor?.hsba.brightness ?? 0.5))
 
 redType.text = "\(Hue * 360)"
-greenType.text = "\(Saturation)"
-blueType.text = "\(Brightness)"
+greenType.text = "\(Saturation * 100)"
+blueType.text = "\(Brightness * 100)"
 
 }
  
@@ -146,13 +146,14 @@ BlueSlider.setValue((Float(blueType.text!)! / 255), animated: true)
 else
 {
 RedSlider.setValue(((Float(redType.text!)! / 360)), animated: true)
-GreenSlider.setValue((Float(greenType.text!)!  ), animated: true)
-BlueSlider.setValue((Float(blueType.text!)!  ), animated: true)
+GreenSlider.setValue((Float(greenType.text!)! / 100  ), animated: true)
+BlueSlider.setValue((Float(blueType.text!)! / 100 ), animated: true)
 }
 ChangeColor()
 
 }
 
+/// If the switch is on then it converts to the HSB values
 func changeToColorType() {
 if !truth{
 RedLabel.text = "Hue"
@@ -161,6 +162,9 @@ BlueLabel.text = "Brightness"
 redType.text = "0.5"
 greenType.text = "0.5"
 blueType.text = "0.5"
+RedSlider.tintColor = .systemTeal
+GreenSlider.tintColor = .systemYellow
+BlueSlider.tintColor = .white
 }
 }
 func ChangeDisplayColor(){
@@ -181,7 +185,7 @@ if truth
   }
 else
 {
-Hue = (Double(RedSlider.value))
+Hue = (Float(RedSlider.value))
 Saturation = GreenSlider.value
 Brightness = BlueSlider.value
 }
@@ -189,8 +193,8 @@ Brightness = BlueSlider.value
 }
 func ChangeLabelTxt(){
    let RedL = String(format: "%0.0f", (RedColor*255))
-   let BlueL = String(format: "%0.0f", (BlueColor*255))
-   let GreenL = String(format: "%0.0f", (GreenColor*255))
+   let BlueL = String(format: "%0.0f", (GreenColor*255))
+   let GreenL = String(format: "%0.0f", (BlueColor*255))
 if truth {
 
     redType.text = "\(RedL)"
@@ -201,8 +205,8 @@ else
 {
  
 redType.text = "\((Hue * 360).rounded())"
-greenType.text = "\(Saturation)"
-blueType.text = "\(Brightness)"
+greenType.text = "\(Saturation * 100)"
+blueType.text = "\(Brightness * 100)"
 }
 hexValue.text = Display.backgroundColor?.hexString
 
