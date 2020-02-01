@@ -126,15 +126,20 @@ performSegue(withIdentifier: "slideToBuffer", sender: nil)
 @IBAction func RedFunc(_ sender: Any) {
 ChangeColor()
 ChangeLabelTxt()
+discoveredColor = Display.backgroundColor
 }
 @IBAction func GreenFunc(_ sender: Any) {
 ChangeColor()
 ChangeLabelTxt()
+discoveredColor = Display.backgroundColor
+
 }
 
 @IBAction func BlueFunc(_ sender: Any) {
 ChangeColor()
 ChangeLabelTxt()
+discoveredColor = Display.backgroundColor
+
 }
 
 @IBAction func selfInputButton(_ sender: Any) {
