@@ -37,8 +37,12 @@ var tempColor : UIColor!
     //nothing goes here
 }
 
-func addCircularButton()
+func setupUI()
 {
+
+    // label to indicate Hex value
+hexValue.frame = CGRect(x: Int(self.view.frame.maxX /  2 ) - 75, y: 21, width: 135, height: 21)
+   
 // circular shaped button which will give user op
       extractorButton.frame = CGRect(x: self.view.bounds.maxX / 2 -  35 , y: (self.view.bounds.maxY * 0.85) - 35, width: 70, height: 70)
       extractorButton.backgroundColor = .clear
@@ -61,7 +65,7 @@ func addCircularButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       addCircularButton()
+       setupUI()
        
      changeToColorType()
      }

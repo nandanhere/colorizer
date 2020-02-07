@@ -105,7 +105,9 @@ Scroll.delegate = self
    myImageView.isOpaque = true
 
    crossHair.image = #imageLiteral(resourceName: "crosshair")
-
+ 
+    // parameters for the Hex value label
+Lab.frame = CGRect(x: Int(self.view.frame.maxX /  2 ) - 75, y: 21, width: 135, height: 21)
    
    // label for name of the colour that will be detected
 nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)

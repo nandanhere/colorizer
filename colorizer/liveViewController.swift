@@ -172,6 +172,11 @@ extractorButton.addTarget(self, action: #selector(liveViewController.goToResultB
     lineShapeInsideCC.path = linePathInsideCC.cgPath
     lineShapeInsideCC.fillColor = UIColor.init(white: 0.7, alpha: 0.5).cgColor
     self.view.layer.insertSublayer(lineShapeInsideCC, at: 1)
+    
+     // label to show Hex value
+     hexValue.frame = CGRect(x: Int(self.view.frame.maxX /  2 ) - 75, y: 21, width: 135, height: 21)
+  
+
 }
 
     override func viewDidLoad() {
