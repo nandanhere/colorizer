@@ -15,6 +15,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hex Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGr-r3-4jx">
+                                <rect key="frame" x="120" y="323" width="135" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.1350251596" green="0.85288429030000001" blue="0.86686077289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bpU-Bk-a2o">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -25,19 +32,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="667"/>
                                             </imageView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSa-h8-T5U">
-                                                <rect key="frame" x="8" y="8" width="51" height="31"/>
+                                                <rect key="frame" x="8" y="15" width="51" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <connections>
                                                     <action selector="truthChanger:" destination="BYZ-38-t0r" eventType="valueChanged" id="DOb-X9-Ufh"/>
                                                 </connections>
                                             </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hex Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGr-r3-4jx">
-                                                <rect key="frame" x="111" y="13" width="135" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="highlightedColor"/>
-                                                <color key="shadowColor" red="0.1350251596" green="0.85288429030000001" blue="0.86686077289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="QnJ-lF-VIY" firstAttribute="top" secondItem="s3c-Dm-RNP" secondAttribute="top" id="2qE-mQ-jOk"/>
@@ -603,8 +603,8 @@
         <image name="video.badge.plus" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hAK-0z-QfK"/>
-        <segue reference="t4B-xh-PJA"/>
-        <segue reference="6On-Nz-0sY"/>
+        <segue reference="yTT-88-qf4"/>
+        <segue reference="WHZ-5a-btY"/>
+        <segue reference="UNj-e8-Ah1"/>
     </inferredMetricsTieBreakers>
 </document>
