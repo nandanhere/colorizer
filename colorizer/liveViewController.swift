@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import AVFoundation
+import AVFoundation //AV foundation has all the necessary Audio video info needed
 
 let WIDTH = UIScreen.main.bounds.width
 let HEIGHT = UIScreen.main.bounds.height
 
+//Second class is necessary to continously help us take video
 class liveViewController: UIViewController , AVCaptureVideoDataOutputSampleBufferDelegate {
 
 @IBOutlet weak var hexValue: UILabel!
@@ -19,39 +20,46 @@ class liveViewController: UIViewController , AVCaptureVideoDataOutputSampleBuffe
 
 // Creates a session which will start capturing  audio and video data
 let captureSession = AVCaptureSession()
+// Taking into account what camera we are trying to use here
 var backFacingCamera: AVCaptureDevice?
 var currentDevice: AVCaptureDevice?
 
-let values = UILabel()
-let extractorButton = UIButton()
+let values = UILabel() //Display the values
+let extractorButton = UIButton() //To extract the color
 let nameOfColor = UILabel()
-let extractorButtonShell = CAShapeLayer()
+let extractorButtonShell = CAShapeLayer() // UI portion of button
 
 @IBAction func unwindToLive(segue: UIStoryboardSegue) {
     //nothing goes here
 }
 
-
+//The sample buffer mentioned below can be of any media type
 func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    //Declaring the sample buffer as a constant that is now an image buffer
     guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
         return
     }
+//Locking the buffer view to access the pixel data and generally the lock flags are set to 0
     CVPixelBufferLockBaseAddress(imageBuffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
+//Finds the base address of the plane where our buffer is at
     guard let baseAddr = CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 0) else {
         return
     }
+ //The constants below have their usual meanings with respect to the buffer
     let width = CVPixelBufferGetWidthOfPlane(imageBuffer, 0)
     let height = CVPixelBufferGetHeightOfPlane(imageBuffer, 0)
     let bytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(imageBuffer, 0)
+//Changing the space into a rgb dependent space
     let colorSpace = CGColorSpaceCreateDeviceRGB()
+//Takes bitmap and talks about values of alpha
     let bimapInfo: CGBitmapInfo = [
         .byteOrder32Little,
         CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)]
-    
-    guard let content = CGContext(data: baseAddr, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bimapInfo.rawValue) else {
+//Using all the above descibred constant and implementing it into a 2d surface
+  guard let content = CGContext(data: baseAddr, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bimapInfo.rawValue) else {
         return
     }
-    
+   //provides the image using pixel data and CGimage i.e. image based on pixel data
     guard let cgImage = content.makeImage() else {
         return
     }
@@ -105,7 +113,7 @@ self.view.addSubview(values)
 //end of RGB Showcaser
 }
 
-
+//Since we need the live view to continuously run, this function does that
     DispatchQueue.main.async {
         self.previewLayer.contents = cgImage
         let color = self.previewLayer.pickColor(at: self.center)
@@ -120,6 +128,7 @@ self.view.addSubview(values)
     
 }
 
+//CALAyer is like something that allows you to edit or help in animation and also helps in managing image content
 let previewLayer = CALayer()
 let circularCrosshair = CAShapeLayer()
 
@@ -215,29 +224,33 @@ performSegue(withIdentifier: "liveToBuffer", sender: nil)
 
 
 
+@IBAction func goToSliderFunction(_ sender: Any) {
+cameFromHalfAlive = false
+}
 
-
+//Starts an instance that starts recording video
 let queue = DispatchQueue(label: "com.camera.video.queue")
 
-// 取色位置
-    var center: CGPoint = CGPoint(x: WIDTH/2-15, y: WIDTH/2-15)
+// position of the point where color is extracted
+var center: CGPoint = CGPoint(x: WIDTH/2-15, y: WIDTH/2-15)
     //MARK: - 获取设备,创建自定义视图
     func CreateUI(){
-        // 将音视频采集会话的预设设置为高分辨率照片--选择照片分辨率
+        // We make the resolution of the capture as high res.
         self.captureSession.sessionPreset = AVCaptureSession.Preset.hd1280x720
-        // 获取设备
-        
+        //The default beginner camera is the back camera and is for video mode
+
 
         let devis = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back)
         self.backFacingCamera = devis
-        //设置当前设备为前置摄像头
+        //Use a do-try-catch for error handling
         self.currentDevice = self.backFacingCamera
         do {
-            // 当前设备输入端
+            // current device input
             let captureDeviceInput = try AVCaptureDeviceInput(device: currentDevice!)
             let videoOutput = AVCaptureVideoDataOutput()
             videoOutput.videoSettings = ([kCVPixelBufferPixelFormatTypeKey as AnyHashable: NSNumber(value: kCMPixelFormat_32BGRA)] as! [String : Any])
             videoOutput.alwaysDiscardsLateVideoFrames = true
+           //Runs the Dispatch queue
             videoOutput.setSampleBufferDelegate(self, queue: queue)
             
             if self.captureSession.canAddOutput(videoOutput) {
@@ -249,33 +262,31 @@ let queue = DispatchQueue(label: "com.camera.video.queue")
             return
         }
         
-        // 启动音视频采集的会话
+        // Start a session of audio and video acquisition
         self.captureSession.startRunning()
     }
 }
 
 public extension CALayer {
     
-    /// 获取特定位置的颜色
-    ///
-    /// - parameter at: 位置
-    ///
-    /// - returns: 颜色
+     /// get the color of a specific position    ///
+      ///-parameter at: position    ///
+      ///-returns: color
     func pickColor(at position: CGPoint) -> UIColor? {
         
-        // 用来存放目标像素值
+    // used to store the target pixel value
         var pixel = [UInt8](repeatElement(0, count: 4))
-        // 颜色空间为 RGB，这决定了输出颜色的编码是 RGB 还是其他（比如 YUV）
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        // 设置位图颜色分布为 RGBA
+// The color space is RGB, which determines whether the encoding of the output color is RGB or other (such as YUV)
+       let colorSpace = CGColorSpaceCreateDeviceRGB()
+        // Set the bitmap color distribution to RGBA
         let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue
         guard let context = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo) else {
             return nil
         }
-        // 设置 context 原点偏移为目标位置所有坐标
+        // Set the context origin offset to all coordinates of the target position
         context.translateBy(x: -position.x, y: -position.y)
-        // 将图像渲染到 context 中
-        render(in: context)
+  // render the image into the context
+    render(in: context)
         
         return UIColor(red: CGFloat(pixel[0]) / 255.0,
                        green: CGFloat(pixel[1]) / 255.0,

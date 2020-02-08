@@ -7,6 +7,7 @@
 //
 var discoveredColor : UIColor?
 var truth = true
+var cameFromHalfAlive = true
 import UIKit
 extension NSMutableAttributedString {
 
@@ -203,6 +204,10 @@ crossHair.frame = CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.heig
 truth = Switcheroo.isOn
 }
 
+@IBAction func goToSliderFunction(_ sender: Any) {
+cameFromHalfAlive = true
+}
+
 func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
         myImageView.image = image
@@ -216,8 +221,8 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
 /// - Parameter Scroll: Scroll is the view which allows the gesture implementation on UIVIew
  func viewForZooming(in Scroll : UIScrollView) -> UIView? {
   uni.zoomer = max(Scroll.contentSize.height / Scroll.frame.height, Scroll.contentSize.width / Scroll.frame.width)
-  print(uni.zoomer)
-  print("\(Scroll.contentOffset.x) and \(Scroll.contentOffset.y)")
+//  print(uni.zoomer)
+//  print("\(Scroll.contentOffset.x) and \(Scroll.contentOffset.y)")
 // prints how off the content is in the scrollview (will delete note in final)
     return self.myImageView
 }

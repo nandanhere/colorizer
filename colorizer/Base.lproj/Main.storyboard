@@ -81,13 +81,14 @@
                                             <action selector="CameraUse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SdI-BS-56K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhU-rR-bzG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhU-rR-bzG" userLabel="goToSlider">
                                         <rect key="frame" x="177.5" y="1.5" width="89" height="56.5"/>
                                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" backgroundImage="slider.horizontal.3" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="goToSliderFunction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="beh-aS-6Dg"/>
                                             <segue destination="YG1-Uj-Y99" kind="presentation" identifier="halfAliveToSlider" modalTransitionStyle="flipHorizontal" id="yTT-88-qf4"/>
                                         </connections>
                                     </button>
@@ -331,7 +332,7 @@
         <scene sceneID="Sau-Hw-n8O">
             <objects>
                 <viewController title="liveDetector" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="0Rk-rK-zPg" customClass="liveViewController" customModule="colorizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleAspectFit" id="3Ta-ND-QkO">
+                    <view key="view" contentMode="scaleToFill" id="3Ta-ND-QkO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -364,6 +365,7 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="goToSliderFunction:" destination="0Rk-rK-zPg" eventType="touchUpInside" id="JY9-ah-xai"/>
                                             <segue destination="YG1-Uj-Y99" kind="show" identifier="liveToSlider" id="hAK-0z-QfK"/>
                                         </connections>
                                     </button>
@@ -374,7 +376,7 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="pQC-Od-ZYV" kind="unwind" unwindAction="unwindToHalfAliveWithSegue:" id="uT5-qD-RkK"/>
+                                            <segue destination="pQC-Od-ZYV" kind="unwind" identifier="unwindToHalfAlive" unwindAction="unwindToHalfAliveWithSegue:" id="uT5-qD-RkK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -491,8 +493,8 @@
                                     <constraint firstItem="h6E-hq-2Yf" firstAttribute="leading" secondItem="sH8-ZK-ehA" secondAttribute="leading" id="o9R-iu-kR0"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Result Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hny-yr-xHP">
-                                <rect key="frame" x="0.0" y="123" width="375" height="82"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hny-yr-xHP">
+                                <rect key="frame" x="0.0" y="128" width="375" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="FCJ-K0-8P9"/>
                                 </constraints>
@@ -517,7 +519,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="55" weight="thin"/>
                                         </state>
                                         <connections>
-                                            <segue destination="6ga-PO-Yyy" kind="unwind" unwindAction="unwindToHalfAliveWithSegue:" id="9pD-0O-666"/>
+                                            <action selector="goToPreviousView:" destination="YG1-Uj-Y99" eventType="touchUpInside" id="zUt-Ap-iLD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t9-cS-p6e">
@@ -580,6 +582,10 @@
                         <outlet property="hexValue" destination="p4s-6F-tIQ" id="vDH-yy-LW0"/>
                         <outlet property="redType" destination="YgJ-O6-Dca" id="4SY-L1-XYE"/>
                         <segue destination="h4m-ge-SsO" kind="show" identifier="slideToBuffer" id="6On-Nz-0sY"/>
+                        <segue destination="0Rk-rK-zPg" kind="presentation" identifier="slideToLive" id="t4B-xh-PJA"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="slideToHalfAlive" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="su3-6W-1F9"/>
+                        <segue destination="6ga-PO-Yyy" kind="unwind" identifier="unwindToHalfAliveFromSlider" unwindAction="unwindToHalfAliveWithSegue:" id="uO0-XC-eUG"/>
+                        <segue destination="6ga-PO-Yyy" kind="unwind" identifier="unwindToLiveFromSlider" unwindAction="unwindToLiveWithSegue:" id="RFj-nn-Emv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hY2-15-MeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -598,6 +604,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hAK-0z-QfK"/>
-        <segue reference="HU6-8Q-kWh"/>
+        <segue reference="t4B-xh-PJA"/>
+        <segue reference="6On-Nz-0sY"/>
     </inferredMetricsTieBreakers>
 </document>

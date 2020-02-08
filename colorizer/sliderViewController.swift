@@ -162,6 +162,17 @@ ChangeColor()
 
 }
 
+
+@IBAction func goToPreviousView(_ sender: Any) {
+if cameFromHalfAlive{
+performSegue(withIdentifier: "unwindToHalfAliveFromSlider", sender: self )
+}
+else
+{
+performSegue(withIdentifier: "unwindToLiveFromSlider", sender: self )
+
+}
+}
 /// If the switch is on then it converts to the HSB values
 func changeToColorType() {
 if !truth{
