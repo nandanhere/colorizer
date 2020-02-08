@@ -111,6 +111,8 @@ self.view.addSubview(values)
         let color = self.previewLayer.pickColor(at: self.center)
         self.view.backgroundColor = color
         discoveredColor = color
+    self.extractorButtonShell.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
+
     valueDisplayer(color ?? UIColor.black)
      
         self.circularCrosshair.strokeColor = color?.cgColor

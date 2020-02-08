@@ -199,6 +199,8 @@ Saturation = GreenSlider.value
 Brightness = BlueSlider.value
 }
     ChangeDisplayColor()
+ extractorButtonShell.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
+
 }
 func ChangeLabelTxt(){
    let RedL = String(format: "%0.0f", (RedColor*255))
