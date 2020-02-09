@@ -45,8 +45,8 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate , UINav
 @IBOutlet weak var myImageView: UIImageView!
 @IBOutlet weak var importerButton: UIButton!
 @IBOutlet weak var cameraUseButton: UIButton!
-@IBOutlet weak var Switcheroo: UISwitch!
-@IBOutlet weak var Lab: UILabel!
+ @IBOutlet weak var Lab: UILabel!
+var dominantColor :UIColor = .black
 
 
 
@@ -86,7 +86,7 @@ func addCircularButton()
       extractorButtonShell.lineWidth = 3
       extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
       extractorButtonShell.path = linePath.cgPath
-      extractorButtonShell.zPosition = .greatestFiniteMagnitude
+      extractorButtonShell.zPosition = CGFloat(Float.greatestFiniteMagnitude)
        self.view.layer.insertSublayer(extractorButtonShell, at: 1)
 }
  
@@ -110,7 +110,7 @@ Scroll.delegate = self
  
     // parameters for the Hex value label
 Lab.frame = CGRect(x: Int(self.view.frame.maxX /  2 ) - 75, y: 21, width: 135, height: 21)
-Lab.layer.zPosition = .greatestFiniteMagnitude
+Lab.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
    
    // label for name of the colour that will be detected
 nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
@@ -184,7 +184,7 @@ let image = UIImagePickerController()
   addCrosshair()
 Scroll.zoomScale = 1
 myImageView.contentMode = .scaleAspectFit
- 
+
 
 }
 
@@ -202,9 +202,7 @@ crossHair.frame = CGRect(x: self.view.bounds.width/2-20, y:self.view.bounds.heig
  }
 }
 
-@IBAction func truthChanger(_ sender: Any) {
-truth = Switcheroo.isOn
-}
+ 
 
 @IBAction func goToSliderFunction(_ sender: Any) {
 cameFromHalfAlive = true
@@ -214,6 +212,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
     if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
         myImageView.image = image
      uni.zoomer = 1
+    dominantColor = image.makePretty(image: image)
     }
     else{}
     self.dismiss(animated: true, completion: nil)
@@ -276,8 +275,8 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
 
 
    
-   if Switcheroo.isOn {
-   // if the switch is taken for rgb values
+   if truth {
+   // if the setting is taken for rgb values
    let r = Int(color.cgColor.components![0] * 255)
    let g = Int(color.cgColor.components![1] * 255)
    let b = Int(color.cgColor.components![2] * 255)
@@ -290,7 +289,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    values.attributedText = attributedString }
    
    else
-   { // if the switch is taken for HSB values
+   { // if the setting is taken for HSB values
    let hs = discoveredColor?.hsba
    let h = Double((hs?.hue)!)
    let b = Double((hs?.brightness)!)
@@ -317,7 +316,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
           extractorButtonShell.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
          nameOfColor.text = discoveredColor?.name
          Lab.text = discoveredColor?.hexString
-
+ 
            }
           img()
        }

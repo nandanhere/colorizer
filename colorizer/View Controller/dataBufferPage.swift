@@ -24,6 +24,8 @@ var tempColor : UIColor!
 @IBOutlet weak var l4: UILabel!
 @IBOutlet weak var l5: UILabel!
 @IBOutlet weak var l6: UILabel!
+@IBAction func unwindTobuffer(segue:UIStoryboardSegue) { }
+
 
 func setupUI()
 {
@@ -80,10 +82,18 @@ l5.text = c5.hexString
 let c6 : UIColor = discoveredColor?.darker() ?? .black
 b6.clipsToBounds = true
 b6.layer.cornerRadius = 50
+if ((discoveredColor?.coreImageColor.red ?? 0.5) <= CGFloat(0.3) || (discoveredColor?.coreImageColor.green ?? 0.5) <= 0.3 || (discoveredColor?.coreImageColor.blue ?? 0.5) <= 0.3) {
+b6.backgroundColor = .black
+b6.setTitle("Black", for: .normal)
+b6.setTitleColor(c6.isDarkColor == true ? .white : .black, for: .normal)
+l6.text = "#000000"
+}
+else{
 b6.backgroundColor = c6
 b6.setTitle(c6.name, for: .normal)
 b6.setTitleColor(c6.isDarkColor == true ? .white : .black, for: .normal)
 l6.text = c6.hexString
+}
 }
 
     override func viewDidLoad() {

@@ -122,6 +122,8 @@ self.view.addSubview(values)
     self.extractorButtonShell.fillColor =  discoveredColor?.withAlphaComponent(0.75).cgColor
 
     valueDisplayer(color ?? UIColor.black)
+    self.hexValue.text = discoveredColor?.hexString
+    self.nameOfColor.text = discoveredColor?.name
      
         self.circularCrosshair.strokeColor = color?.cgColor
     }

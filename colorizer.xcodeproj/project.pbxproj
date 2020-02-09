@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A223AFC523F03D6E00C8ED3C /* DominantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */; };
+		A24AC5F723F0746D001409F2 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5F623F0746D001409F2 /* settingsViewController.swift */; };
+		A24AC5FB23F082FA001409F2 /* webSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */; };
 		A274204323DC72D6005AD9E0 /* dataBufferPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A274204223DC72D6005AD9E0 /* dataBufferPage.swift */; };
 		A278CB2723D890D60093CBC2 /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = A278CB2623D890D60093CBC2 /* ntc.js */; };
 		A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278CB2823D890EF0093CBC2 /* NameOfColor.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominantViewController.swift; sourceTree = "<group>"; };
+		A24AC5F623F0746D001409F2 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webSearchViewController.swift; sourceTree = "<group>"; };
 		A274204223DC72D6005AD9E0 /* dataBufferPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataBufferPage.swift; sourceTree = "<group>"; };
 		A278CB2623D890D60093CBC2 /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
 		A278CB2823D890EF0093CBC2 /* NameOfColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOfColor.swift; sourceTree = "<group>"; };
@@ -34,6 +40,7 @@
 		A27B380F23D5758B00898A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27B381723D5783D00898A5D /* liveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveViewController.swift; sourceTree = "<group>"; };
 		A27F51F223D76F9D00BAB78D /* sliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderViewController.swift; sourceTree = "<group>"; };
+		A2F4BB9C23EFFFE100231B5C /* colorizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = colorizer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A223AFC323F0399C00C8ED3C /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A27B380523D5758400898A5D /* halfAliveViewController.swift */,
+				A27B381723D5783D00898A5D /* liveViewController.swift */,
+				A274204223DC72D6005AD9E0 /* dataBufferPage.swift */,
+				A27F51F223D76F9D00BAB78D /* sliderViewController.swift */,
+				A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */,
+				A24AC5F623F0746D001409F2 /* settingsViewController.swift */,
+				A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		A278CB2523D890460093CBC2 /* extra filees */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,13 +98,11 @@
 		A27B380023D5758400898A5D /* colorizer */ = {
 			isa = PBXGroup;
 			children = (
-				A27B380123D5758400898A5D /* AppDelegate.swift */,
+				A223AFC323F0399C00C8ED3C /* View Controller */,
+				A2F4BB9C23EFFFE100231B5C /* colorizer.entitlements */,
 				A27B380323D5758400898A5D /* SceneDelegate.swift */,
-				A27B380523D5758400898A5D /* halfAliveViewController.swift */,
+				A27B380123D5758400898A5D /* AppDelegate.swift */,
 				A27B380723D5758400898A5D /* Main.storyboard */,
-				A27B381723D5783D00898A5D /* liveViewController.swift */,
-				A274204223DC72D6005AD9E0 /* dataBufferPage.swift */,
-				A27F51F223D76F9D00BAB78D /* sliderViewController.swift */,
 				A278CB2823D890EF0093CBC2 /* NameOfColor.swift */,
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
 				A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */,
@@ -164,11 +183,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A223AFC523F03D6E00C8ED3C /* DominantViewController.swift in Sources */,
 				A27B380623D5758400898A5D /* halfAliveViewController.swift in Sources */,
+				A24AC5F723F0746D001409F2 /* settingsViewController.swift in Sources */,
 				A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */,
 				A27B380223D5758400898A5D /* AppDelegate.swift in Sources */,
 				A274204323DC72D6005AD9E0 /* dataBufferPage.swift in Sources */,
 				A27F51F323D76F9D00BAB78D /* sliderViewController.swift in Sources */,
+				A24AC5FB23F082FA001409F2 /* webSearchViewController.swift in Sources */,
 				A27B381823D5783D00898A5D /* liveViewController.swift in Sources */,
 				A27B380423D5758400898A5D /* SceneDelegate.swift in Sources */,
 			);
@@ -314,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = colorizer/colorizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = colorizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -331,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = colorizer/colorizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = colorizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

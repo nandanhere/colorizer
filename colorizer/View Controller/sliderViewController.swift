@@ -80,6 +80,7 @@ hexValue.text = discoveredColor?.hexString
 halfAliveToSlider()
 }
 
+
 func halfAliveToSlider()
 { if  truth
 {
@@ -147,6 +148,7 @@ discoveredColor = Display.backgroundColor
 }
 
 @IBAction func selfInputButton(_ sender: Any) {
+ChangeColor()
 if truth
 {RedSlider.setValue((Float(redType.text!)! / 255), animated: true)
 GreenSlider.setValue((Float(greenType.text!)! / 255), animated: true)
