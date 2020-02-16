@@ -21,7 +21,7 @@ func pinEdgesToSuperView() {
 class LogoAnimationView: UIView {
     
     let logoGifImageView: UIImageView = {
-        guard let gifImage = try? UIImage(gifName: "bto.gif") else {
+        guard let gifImage = try? UIImage(gifName: "dropAnimation.gif") else {
             return UIImageView()
         }
         return UIImageView(gifImage: gifImage, loopCount: 3)

@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0507C8A342B1C6F13DFCC807 /* Pods_colorizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47FF7768F42E56F538D772D /* Pods_colorizer.framework */; };
 		5657B13323F8F3A90091EDE9 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */; };
-		5657B13523F94B9B0091EDE9 /* bto.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5657B13423F94B9B0091EDE9 /* bto.gif */; };
 		A223AFC523F03D6E00C8ED3C /* DominantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */; };
 		A24AC5F723F0746D001409F2 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5F623F0746D001409F2 /* settingsViewController.swift */; };
 		A24AC5FB23F082FA001409F2 /* webSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */; };
+		A255136123F9B2A0003FB64A /* dropAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = A255136023F9B2A0003FB64A /* dropAnimation.gif */; };
 		A274204323DC72D6005AD9E0 /* dataBufferPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A274204223DC72D6005AD9E0 /* dataBufferPage.swift */; };
 		A278CB2723D890D60093CBC2 /* ntc.js in Resources */ = {isa = PBXBuildFile; fileRef = A278CB2623D890D60093CBC2 /* ntc.js */; };
 		A278CB2923D890EF0093CBC2 /* NameOfColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278CB2823D890EF0093CBC2 /* NameOfColor.swift */; };
@@ -29,11 +29,11 @@
 /* Begin PBXFileReference section */
 		3D33BF624533051A52A3BA07 /* Pods-colorizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorizer.debug.xcconfig"; path = "Target Support Files/Pods-colorizer/Pods-colorizer.debug.xcconfig"; sourceTree = "<group>"; };
 		5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
-		5657B13423F94B9B0091EDE9 /* bto.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = bto.gif; path = ../../../Desktop/bto.gif; sourceTree = "<group>"; };
 		8C96F94E02781D486DB3463A /* Pods-colorizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorizer.release.xcconfig"; path = "Target Support Files/Pods-colorizer/Pods-colorizer.release.xcconfig"; sourceTree = "<group>"; };
 		A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominantViewController.swift; sourceTree = "<group>"; };
 		A24AC5F623F0746D001409F2 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webSearchViewController.swift; sourceTree = "<group>"; };
+		A255136023F9B2A0003FB64A /* dropAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dropAnimation.gif; sourceTree = "<group>"; };
 		A274204223DC72D6005AD9E0 /* dataBufferPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataBufferPage.swift; sourceTree = "<group>"; };
 		A278CB2623D890D60093CBC2 /* ntc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ntc.js; sourceTree = "<group>"; };
 		A278CB2823D890EF0093CBC2 /* NameOfColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameOfColor.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
 				A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */,
 				A27B380F23D5758B00898A5D /* Info.plist */,
-				5657B13423F94B9B0091EDE9 /* bto.gif */,
+				A255136023F9B2A0003FB64A /* dropAnimation.gif */,
 			);
 			path = colorizer;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5657B13523F94B9B0091EDE9 /* bto.gif in Resources */,
 				A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */,
 				A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */,
+				A255136123F9B2A0003FB64A /* dropAnimation.gif in Resources */,
 				A278CB2723D890D60093CBC2 /* ntc.js in Resources */,
 				A27B380923D5758400898A5D /* Main.storyboard in Resources */,
 			);
