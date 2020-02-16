@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0507C8A342B1C6F13DFCC807 /* Pods_colorizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47FF7768F42E56F538D772D /* Pods_colorizer.framework */; };
+		5657B13323F8F3A90091EDE9 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */; };
+		5657B13523F94B9B0091EDE9 /* bto.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5657B13423F94B9B0091EDE9 /* bto.gif */; };
 		A223AFC523F03D6E00C8ED3C /* DominantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */; };
 		A24AC5F723F0746D001409F2 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5F623F0746D001409F2 /* settingsViewController.swift */; };
 		A24AC5FB23F082FA001409F2 /* webSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */; };
@@ -24,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D33BF624533051A52A3BA07 /* Pods-colorizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorizer.debug.xcconfig"; path = "Target Support Files/Pods-colorizer/Pods-colorizer.debug.xcconfig"; sourceTree = "<group>"; };
+		5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
+		5657B13423F94B9B0091EDE9 /* bto.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = bto.gif; path = ../../../Desktop/bto.gif; sourceTree = "<group>"; };
+		8C96F94E02781D486DB3463A /* Pods-colorizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorizer.release.xcconfig"; path = "Target Support Files/Pods-colorizer/Pods-colorizer.release.xcconfig"; sourceTree = "<group>"; };
 		A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominantViewController.swift; sourceTree = "<group>"; };
 		A24AC5F623F0746D001409F2 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webSearchViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +48,7 @@
 		A27B381723D5783D00898A5D /* liveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveViewController.swift; sourceTree = "<group>"; };
 		A27F51F223D76F9D00BAB78D /* sliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sliderViewController.swift; sourceTree = "<group>"; };
 		A2F4BB9C23EFFFE100231B5C /* colorizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = colorizer.entitlements; sourceTree = "<group>"; };
+		A47FF7768F42E56F538D772D /* Pods_colorizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_colorizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0507C8A342B1C6F13DFCC807 /* Pods_colorizer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +73,8 @@
 				A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */,
 				A24AC5F623F0746D001409F2 /* settingsViewController.swift */,
 				A24AC5FA23F082FA001409F2 /* webSearchViewController.swift */,
+				5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */,
+				A27B380123D5758400898A5D /* AppDelegate.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -82,6 +93,8 @@
 				A278CB2523D890460093CBC2 /* extra filees */,
 				A27B380023D5758400898A5D /* colorizer */,
 				A27B37FF23D5758400898A5D /* Products */,
+				DFD4CA7F01B71BA9BA3F6985 /* Pods */,
+				B9DCC67AB19D54A34D018D2C /* Frameworks */,
 			);
 			indentWidth = 0;
 			sourceTree = "<group>";
@@ -101,14 +114,31 @@
 				A223AFC323F0399C00C8ED3C /* View Controller */,
 				A2F4BB9C23EFFFE100231B5C /* colorizer.entitlements */,
 				A27B380323D5758400898A5D /* SceneDelegate.swift */,
-				A27B380123D5758400898A5D /* AppDelegate.swift */,
 				A27B380723D5758400898A5D /* Main.storyboard */,
 				A278CB2823D890EF0093CBC2 /* NameOfColor.swift */,
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
 				A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */,
 				A27B380F23D5758B00898A5D /* Info.plist */,
+				5657B13423F94B9B0091EDE9 /* bto.gif */,
 			);
 			path = colorizer;
+			sourceTree = "<group>";
+		};
+		B9DCC67AB19D54A34D018D2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A47FF7768F42E56F538D772D /* Pods_colorizer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFD4CA7F01B71BA9BA3F6985 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D33BF624533051A52A3BA07 /* Pods-colorizer.debug.xcconfig */,
+				8C96F94E02781D486DB3463A /* Pods-colorizer.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A27B381223D5758B00898A5D /* Build configuration list for PBXNativeTarget "colorizer" */;
 			buildPhases = (
+				D757304406BD6E99BEC62F06 /* [CP] Check Pods Manifest.lock */,
 				A27B37FA23D5758400898A5D /* Sources */,
 				A27B37FB23D5758400898A5D /* Frameworks */,
 				A27B37FC23D5758400898A5D /* Resources */,
+				C08A8690F28569ADFA92B23A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5657B13523F94B9B0091EDE9 /* bto.gif in Resources */,
 				A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */,
 				A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */,
 				A278CB2723D890D60093CBC2 /* ntc.js in Resources */,
@@ -178,11 +211,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C08A8690F28569ADFA92B23A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-colorizer/Pods-colorizer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-colorizer/Pods-colorizer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-colorizer/Pods-colorizer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D757304406BD6E99BEC62F06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-colorizer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A27B37FA23D5758400898A5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5657B13323F8F3A90091EDE9 /* LogoAnimationView.swift in Sources */,
 				A223AFC523F03D6E00C8ED3C /* DominantViewController.swift in Sources */,
 				A27B380623D5758400898A5D /* halfAliveViewController.swift in Sources */,
 				A24AC5F723F0746D001409F2 /* settingsViewController.swift in Sources */,
@@ -334,10 +410,12 @@
 		};
 		A27B381323D5758B00898A5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D33BF624533051A52A3BA07 /* Pods-colorizer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = colorizer/colorizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J342R59BVV;
 				INFOPLIST_FILE = colorizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -352,10 +430,12 @@
 		};
 		A27B381423D5758B00898A5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C96F94E02781D486DB3463A /* Pods-colorizer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = colorizer/colorizer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J342R59BVV;
 				INFOPLIST_FILE = colorizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

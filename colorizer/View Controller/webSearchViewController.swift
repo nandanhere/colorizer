@@ -23,7 +23,10 @@ override func viewDidLoad() {
 
         // Do any additional setup after loading the view.
     }
-    
+@IBAction func Backer(_ sender: Any) {
+performSegue(withIdentifier: "GoGoHikashi", sender: self)
+}
+
 
     /*
     // MARK: - Navigation

@@ -9,13 +9,15 @@
 import UIKit
 
 class OkBoomerViewController: UIViewController {
+use_frameworks!
+
+pod 'OnboardKit', :git => 'https://github.com/NikolaKirev/OnboardKit.git', :branch => 'master'
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

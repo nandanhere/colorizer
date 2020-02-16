@@ -2,6 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+    &lt;string&gt;googlegmail&lt;/string&gt;
+    &lt;string&gt;ms-outlook&lt;/string&gt;
+    &lt;string&gt;readdle-spark&lt;/string&gt;
+    &lt;string&gt;ymail&lt;/string&gt;
+&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+    &lt;string&gt;googlegmail&lt;/string&gt;
+    &lt;string&gt;ms-outlook&lt;/string&gt;
+    &lt;string&gt;readdle-spark&lt;/string&gt;
+    &lt;string&gt;ymail&lt;/string&gt;
+&lt;/array&gt;</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

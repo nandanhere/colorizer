@@ -186,7 +186,7 @@ greenType.text = "0.5"
 blueType.text = "0.5"
 RedSlider.tintColor = .systemTeal
 GreenSlider.tintColor = .systemYellow
-BlueSlider.tintColor = .white
+BlueSlider.tintColor = .systemIndigo
 }
 }
 func ChangeDisplayColor(){

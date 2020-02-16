@@ -8,7 +8,10 @@
 var discoveredColor : UIColor?
 var truth = true
 var cameFromHalfAlive = true
+var dominantColor :UIColor = .white
+//MARK: - Import and Extensions
 import UIKit
+import SwiftyGif
 extension NSMutableAttributedString {
 
     func setColor(color: UIColor, forText stringValue: String) {
@@ -39,20 +42,20 @@ extension UIImage {
     pixel.deallocate()
     return color
 }}
-
+//MARK: - Classes and Var
 class ViewController: UIViewController , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UIScrollViewDelegate {
+let logoAnimationView = LogoAnimationView()
 @IBOutlet weak var Scroll: UIScrollView!
 @IBOutlet weak var myImageView: UIImageView!
 @IBOutlet weak var importerButton: UIButton!
 @IBOutlet weak var cameraUseButton: UIButton!
  @IBOutlet weak var Lab: UILabel!
-var dominantColor :UIColor = .black
-
-
 
 @IBAction func unwindToHalfAlive(segue: UIStoryboardSegue) {
     //nothing goes here
 }
+
+
 
 class cv {
      var ranOnce = false
@@ -89,7 +92,7 @@ func addCircularButton()
       extractorButtonShell.zPosition = CGFloat(Float.greatestFiniteMagnitude)
        self.view.layer.insertSublayer(extractorButtonShell, at: 1)
 }
- 
+//MARK: - SetupUI
 func setupUI(){
 Scroll.delegate = self
        Scroll.minimumZoomScale = 1.0
@@ -102,7 +105,7 @@ Scroll.delegate = self
      cameraUseButton.layer.masksToBounds = true
      cameraUseButton.layer.cornerRadius = 15
  
-   myImageView.image = #imageLiteral(resourceName: "color wheel-1")
+   myImageView.image = #imageLiteral(resourceName: "Wheel")
    myImageView.backgroundColor = .clear
    myImageView.isOpaque = true
 
@@ -123,14 +126,22 @@ nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.
 }
 
 
-  
+  //MARK: - Override
      override func viewDidLoad() {
+     view.addSubview(logoAnimationView)
+        logoAnimationView.pinEdgesToSuperView()
+        logoAnimationView.logoGifImageView.delegate = self
         super.viewDidLoad()
-         setupUI()
-        addCircularButton()
+     DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {      self.setupUI()
+     self.addCircularButton()
+     }
+        
     
 }
-
+override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    logoAnimationView.logoGifImageView.startAnimatingGif()
+}
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 if let sliderViewController = segue.destination as? sliderViewController
 {
@@ -174,7 +185,7 @@ func addCrosshair()
     }
  
 }
-
+//MARK: - Button Actions
 @IBAction func galleryImporter(_ sender: Any) {
 let image = UIImagePickerController()
   image.delegate = self
@@ -213,6 +224,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
         myImageView.image = image
      uni.zoomer = 1
     dominantColor = image.makePretty(image: image)
+    
     }
     else{}
     self.dismiss(animated: true, completion: nil)
@@ -298,7 +310,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
    attributedString.setColor(color: UIColor.systemTeal, forText: "Hue   : \((360 * h).rounded()) \r")
    attributedString.setColor(color: UIColor.systemYellow, forText:  "Sat : \((1000 * s).rounded()/10)\r")
-   attributedString.setColor(color: UIColor.white, forText: "Brt  : \((1000 * b).rounded()/10)")
+   attributedString.setColor(color: UIColor.systemIndigo, forText: "Brt  : \((1000 * b).rounded()/10)")
        values.attributedText = attributedString
    }
    
@@ -323,5 +335,10 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
 
 
 
+}
+extension ViewController: SwiftyGifDelegate {
+    func gifDidStop(sender: UIImageView) {
+        logoAnimationView.isHidden = true
+    }
 }
 

@@ -69,7 +69,7 @@ class KMeansClusterer {
             clusters.append(Cluster(center: p!))
         }
         
-        for i in 0 ..< 10 {
+        for i in 0 ..< 1500 {
             clusters.forEach {
                 $0.points.removeAll()
             }

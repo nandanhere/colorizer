@@ -24,6 +24,7 @@ var tempColor : UIColor!
 @IBOutlet weak var l4: UILabel!
 @IBOutlet weak var l5: UILabel!
 @IBOutlet weak var l6: UILabel!
+@IBOutlet weak var Shopper: UIButton!
 @IBAction func unwindTobuffer(segue:UIStoryboardSegue) { }
 
 
@@ -100,6 +101,13 @@ l6.text = c6.hexString
         super.viewDidLoad()
         discoveredColor = tempColor
     outputlabel.text = "OUTPUT"
+    outputlabel.backgroundColor = dominantColor
+    if dominantColor.isDarkColor == true{
+    outputlabel.textColor = .white
+    }
+    else{
+    outputlabel.textColor = .black
+    }
     setupUI()
     
        
@@ -112,6 +120,16 @@ setupUI()
 self.dismiss(animated: true) {
  
 }
+}
+
+@IBAction func Sharer(_ sender: Any) {
+let SharingVC = UIActivityViewController(activityItems: ["I discovered this brand new color called \((discoveredColor?.name)!) with its hexcode as \((discoveredColor?.hexString)!).You too can do that! Just search 'colorizer' in the app store and discover the artist in you!"], applicationActivities: nil)
+if let pop = SharingVC.popoverPresentationController{
+pop.sourceView = self.view
+pop.sourceRect = (sender as AnyObject).frame
+
+}
+self.present(SharingVC, animated: true, completion: nil)
 }
 
 

@@ -1,0 +1,29 @@
+PODS:
+  - OnboardKit (1.5.0)
+  - SwiftyGif (5.2.0)
+
+DEPENDENCIES:
+  - OnboardKit (from `https://github.com/NikolaKirev/OnboardKit.git`, branch `master`)
+  - SwiftyGif
+
+SPEC REPOS:
+  trunk:
+    - SwiftyGif
+
+EXTERNAL SOURCES:
+  OnboardKit:
+    :branch: master
+    :git: https://github.com/NikolaKirev/OnboardKit.git
+
+CHECKOUT OPTIONS:
+  OnboardKit:
+    :commit: 1678d6909374b2149070f92c0f39dffe2018e87e
+    :git: https://github.com/NikolaKirev/OnboardKit.git
+
+SPEC CHECKSUMS:
+  OnboardKit: 73a4e9c9a1ae88afee0514ac3f2bc4f82126b66e
+  SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
+
+PODFILE CHECKSUM: 7dd92004bae35bf0e49336ced5e7feb9f97dca61
+
+COCOAPODS: 1.8.4
