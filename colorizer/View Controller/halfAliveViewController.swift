@@ -20,7 +20,38 @@ extension NSMutableAttributedString {
     }
 
 }
- 
+extension UIView
+{
+func shake(completion: (() -> Void)? = nil) {
+    
+    let speed = 0.75
+    let time = ( 1 * speed - 0.15)
+    let timeFactor = CGFloat(time / 4)
+    let animationDelays = [timeFactor, timeFactor * 2, timeFactor * 3]
+
+    let shakeAnimator = UIViewPropertyAnimator(duration: time, dampingRatio: 0.3)
+    // left, right, left, center
+    shakeAnimator.addAnimations({
+        self.transform = CGAffineTransform(translationX: 20, y: 0)
+    })
+    shakeAnimator.addAnimations({
+        self.transform = CGAffineTransform(translationX: -20, y: 0)
+    }, delayFactor: animationDelays[0])
+    shakeAnimator.addAnimations({
+        self.transform = CGAffineTransform(translationX: 20, y: 0)
+    }, delayFactor: animationDelays[1])
+    shakeAnimator.addAnimations({
+        self.transform = CGAffineTransform(translationX: 0, y: 0)
+    }, delayFactor: animationDelays[2])
+    shakeAnimator.startAnimation()
+
+    shakeAnimator.addCompletion { _ in
+        completion?()
+    }
+
+    shakeAnimator.startAnimation()
+}
+}
 extension UIImage {
 
 /// Gives color of the pixel in context by taking the bitmap information of the image
@@ -134,6 +165,9 @@ nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.
         super.viewDidLoad()
      DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {      self.setupUI()
      self.addCircularButton()
+     self.crossHair.shake()
+
+ 
      }
         
     
@@ -141,6 +175,7 @@ nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.
 override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     logoAnimationView.logoGifImageView.startAnimatingGif()
+self.crossHair.shake()
 }
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 if let sliderViewController = segue.destination as? sliderViewController
