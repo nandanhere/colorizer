@@ -57,6 +57,8 @@ else
 truth = false
 hsb.setOn(true, animated: true)
 }
+tt = true
+
 }
 
 @IBAction func hsb(_ sender: Any) {
@@ -68,6 +70,8 @@ else{
 truth = true
 rgb.setOn(true, animated: true)
 }
+tt = true
+
 }
 
 @IBAction func Walker(_ sender: Any) {
