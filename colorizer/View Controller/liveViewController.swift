@@ -76,7 +76,7 @@ values.frame = CGRect(x: self.view.bounds.width - 80, y: self.view.bounds.height
    values.layer.masksToBounds = true
 values.numberOfLines = 3
 values.lineBreakMode = .byWordWrapping
-values.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+values.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
 values.textAlignment = .left
 
 
@@ -86,11 +86,11 @@ if truth {
 let r = Int(color.cgColor.components![0] * 255)
 let g = Int(color.cgColor.components![1] * 255)
 let b = Int(color.cgColor.components![2] * 255)
-let stringValue = "Red   : \(r) \rGreen : \(g)\rBlue  : \(b)"
+let stringValue = " Red   : \(r) \r Green : \(g)\r Blue  : \(b)"
 let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
-attributedString.setColor(color: UIColor.red, forText: "Red   : \(r) \r")
-attributedString.setColor(color: UIColor.green, forText:  "Green : \(g)\r")
-attributedString.setColor(color: UIColor.systemBlue, forText: "Blue  : \(b)")
+attributedString.setColor(color: UIColor.red, forText: " Red   : \(r) \r")
+attributedString.setColor(color: UIColor.green, forText:  " Green : \(g)\r")
+attributedString.setColor(color: UIColor.systemBlue, forText: " Blue  : \(b)")
    
 values.attributedText = attributedString }
 
@@ -100,11 +100,11 @@ let hs = discoveredColor?.hsba
 let h = Double((hs?.hue)!)
 let b = Double((hs?.brightness)!)
 let s = Double((hs?.saturation)!)
-let stringValue = "Hue   : \((360 * h).rounded()) \rSat : \((1000 * s).rounded()/1000)\rBrt  : \((1000 * b).rounded()/1000)"
+let stringValue = " Hue   : \((360 * h).rounded()) \r Sat : \((1000 * s).rounded()/1000)\r Brt  : \((1000 * b).rounded()/1000)"
 let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
-attributedString.setColor(color: UIColor.red, forText: "Hue   : \((1000 * h).rounded()/1000) \r")
-attributedString.setColor(color: UIColor.green, forText:  "Sat : \((1000 * b).rounded()/1000)\r")
-attributedString.setColor(color: UIColor.systemBlue, forText: "Brt  : \((1000 * s).rounded()/1000)")
+attributedString.setColor(color: UIColor.red, forText: " Hue   : \((1000 * h).rounded()/1000) \r")
+attributedString.setColor(color: UIColor.green, forText:  " Sat : \((1000 * b).rounded()/1000)\r")
+attributedString.setColor(color: UIColor.systemBlue, forText: " Brt  : \((1000 * s).rounded()/1000)")
     values.attributedText = attributedString
 }
 
@@ -157,7 +157,7 @@ extractorButton.addTarget(self, action: #selector(liveViewController.goToResultB
  nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
  nameOfColor.textColor = .label
  nameOfColor.textAlignment = .center
- nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
+ nameOfColor.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
  nameOfColor.text = discoveredColor?.name
  nameOfColor.backgroundColor = .clear
  self.view.addSubview(nameOfColor)

@@ -80,9 +80,13 @@ let logoAnimationView = LogoAnimationView()
 @IBOutlet weak var myImageView: UIImageView!
 @IBOutlet weak var importerButton: UIButton!
 @IBOutlet weak var cameraUseButton: UIButton!
- @IBOutlet weak var Lab: UILabel!
+ @IBOutlet weak var Lab: UILabel! // Hex value of color displayed here
+@IBOutlet weak var liveButton: UIButton!
+@IBOutlet weak var sliderButton: UIButton!
+@IBOutlet weak var settingsButton: UIButton!
 
-@IBAction func unwindToHalfAlive(segue: UIStoryboardSegue) {
+
+  @IBAction func unwindToHalfAlive(segue: UIStoryboardSegue) {
     //nothing goes here
 }
 
@@ -93,7 +97,6 @@ class cv {
      var zoomer : CGFloat = 1.0
   }
   let uni = cv()
-
 
 
   let values = UILabel() // Displays the values of the RGB components
@@ -123,9 +126,33 @@ func addCircularButton()
       extractorButtonShell.zPosition = CGFloat(Float.greatestFiniteMagnitude)
        self.view.layer.insertSublayer(extractorButtonShell, at: 1)
 }
+
+func preSetup()
+{sliderButton.isHidden = true
+importerButton.isHidden = true
+cameraUseButton.isHidden = true
+ liveButton.isHidden = true
+settingsButton.isHidden = true
+Lab.isHidden = true
+extractorButtonShell.isHidden = true
+
+view.addSubview(logoAnimationView)
+logoAnimationView.pinEdgesToSuperView()
+logoAnimationView.logoGifImageView.delegate = self
+}
+
+
 //MARK: - SetupUI
 func setupUI(){
-Scroll.delegate = self
+sliderButton.isHidden = false
+importerButton.isHidden = false
+cameraUseButton.isHidden = false
+liveButton.isHidden = false
+settingsButton.isHidden = false
+
+ 
+
+ Scroll.delegate = self
        Scroll.minimumZoomScale = 1.0
        Scroll.maximumZoomScale = 100.0
      addCrosshair()
@@ -150,20 +177,21 @@ Lab.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
 nameOfColor.frame = CGRect(x:(self.view.bounds.maxX / 2 ) - 150  , y: self.view.bounds.maxY * 0.85 - 60 , width: 300 , height: 20)
    nameOfColor.textColor = .label
    nameOfColor.textAlignment = .center
-   nameOfColor.font = .monospacedSystemFont(ofSize: 20, weight: .heavy)
+   nameOfColor.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 20)
    nameOfColor.text = discoveredColor?.name
    nameOfColor.backgroundColor = .clear
    self.view.addSubview(nameOfColor)
+   
+ 
 }
 
 
   //MARK: - Override
      override func viewDidLoad() {
-     view.addSubview(logoAnimationView)
-        logoAnimationView.pinEdgesToSuperView()
-        logoAnimationView.logoGifImageView.delegate = self
+      preSetup()
         super.viewDidLoad()
-     DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {      self.setupUI()
+     DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+     self.setupUI()
      self.addCircularButton()
      self.crossHair.shake()
 
@@ -278,6 +306,8 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
 /// This function will help find the color of the specified point which is marked using the given pointer
   /// - Parameter gesture: drag the pointer to a point inside the image and obtain the pixel color of the point.
    @objc func colorFinderFunction(_ gesture : UIPanGestureRecognizer) {
+   Lab.isHidden = false
+   extractorButtonShell.isHidden = false
        let orignalCenter = CGPoint(x: self.myImageView.bounds.width/2, y: self.myImageView.bounds.height/2)
        let translation = gesture.translation(in: self.myImageView)
        let crosshairGesture = gesture.view!
@@ -317,7 +347,7 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
       values.layer.masksToBounds = true
    values.numberOfLines = 3
    values.lineBreakMode = .byWordWrapping
-   values.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+   values.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 15)
    values.textAlignment = .left
 
 
@@ -327,11 +357,11 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    let r = Int(color.cgColor.components![0] * 255)
    let g = Int(color.cgColor.components![1] * 255)
    let b = Int(color.cgColor.components![2] * 255)
-   let stringValue = "Red   : \(r) \rGreen : \(g)\rBlue  : \(b)"
+   let stringValue = " Red   : \(r) \r Green : \(g)\r Blue  : \(b)"
    let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
-   attributedString.setColor(color: UIColor.red, forText: "Red   : \(r) \r")
-   attributedString.setColor(color: UIColor.green, forText:  "Green : \(g)\r")
-   attributedString.setColor(color: UIColor.systemBlue, forText: "Blue  : \(b)")
+   attributedString.setColor(color: UIColor.red, forText: " Red   : \(r) \r")
+   attributedString.setColor(color: UIColor.green, forText:  " Green : \(g)\r")
+   attributedString.setColor(color: UIColor.systemBlue, forText: " Blue  : \(b)")
       
    values.attributedText = attributedString }
    
@@ -341,11 +371,11 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
    let h = Double((hs?.hue)!)
    let b = Double((hs?.brightness)!)
    let s = Double((hs?.saturation)!)
-   let stringValue = "Hue   : \((360 * h).rounded()) \rSat : \((1000 * s).rounded()/10)\rBrt  : \((1000 * b).rounded()/10)"
+   let stringValue = " Hue   : \((360 * h).rounded()) \r Sat : \((1000 * s).rounded()/10)\r Brt  : \((1000 * b).rounded()/10)"
    let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
-   attributedString.setColor(color: UIColor.systemTeal, forText: "Hue   : \((360 * h).rounded()) \r")
-   attributedString.setColor(color: UIColor.systemYellow, forText:  "Sat : \((1000 * s).rounded()/10)\r")
-   attributedString.setColor(color: UIColor.systemIndigo, forText: "Brt  : \((1000 * b).rounded()/10)")
+   attributedString.setColor(color: UIColor.systemTeal, forText: " Hue   : \((360 * h).rounded()) \r")
+   attributedString.setColor(color: UIColor.systemYellow, forText:  " Sat : \((1000 * s).rounded()/10)\r")
+   attributedString.setColor(color: UIColor.systemIndigo, forText: " Brt  : \((1000 * b).rounded()/10)")
        values.attributedText = attributedString
    }
    

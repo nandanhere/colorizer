@@ -62,6 +62,8 @@ hexValue.frame = CGRect(x: Int(self.view.frame.maxX /  2 ) - 75, y: 21, width: 1
       extractorButtonShell.strokeColor = UIColor.init(white: 2, alpha: 0.9).cgColor
       extractorButtonShell.path = linePath.cgPath
        self.view.layer.insertSublayer(extractorButtonShell, at: 1)
+     
+ 
 }
 
     override func viewDidLoad() {

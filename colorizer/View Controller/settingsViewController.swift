@@ -77,8 +77,8 @@ tt = true
 @IBAction func Walker(_ sender: Any) {
 let titlecolor:UIColor = .white
 
-let boldTitleFont = UIFont.systemFont(ofSize: 32.0, weight: .bold)
-let mediumTextFont = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
+let boldTitleFont = UIFont(name: "AppleSDGothicNeo-Bold" , size: 32) ?? UIFont.systemFont(ofSize: 32.0, weight: .semibold)
+let mediumTextFont = UIFont(name: "AppleSDGothicNeo-Light" , size: 17) ?? UIFont.systemFont(ofSize: 17.0, weight: .semibold)
 
 let ApConfig = OnboardViewController.AppearanceConfiguration(titleColor: .white, textColor: titlecolor, backgroundColor: .black, titleFont: boldTitleFont, textFont: mediumTextFont)
 let onboardingVC = OnboardViewController(pageItems: onboardingPages, appearanceConfiguration: ApConfig,completion: {print("Success")})
