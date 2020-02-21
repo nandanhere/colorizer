@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
      let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          UserDefaults.standard.set(true, forKey: "launchedBefore")
      }
         // Override point for customization after application launch.
+    FirebaseApp.configure()
         return true
     }
 

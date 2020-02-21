@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>130695012684-h7u3v977hmf27jetipuao2uvpfs6pacs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.130695012684-h7u3v977hmf27jetipuao2uvpfs6pacs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD241xfiTUHAaaw9H_rsag_X5ppPDI9DZ4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>130695012684</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>s.colorizer</string>
+	<key>PROJECT_ID</key>
+	<string>colorizer-bc452</string>
+	<key>STORAGE_BUCKET</key>
+	<string>colorizer-bc452.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:130695012684:ios:02f8a33f3b64e9abf9efe9</string>
+	<key>DATABASE_URL</key>
+	<string>https://colorizer-bc452.firebaseio.com</string>
+</dict>
+</plist>

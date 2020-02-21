@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0507C8A342B1C6F13DFCC807 /* Pods_colorizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47FF7768F42E56F538D772D /* Pods_colorizer.framework */; };
+		563E6D9C23FFA00400974580 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 563E6D9B23FFA00400974580 /* GoogleService-Info.plist */; };
 		5657B13323F8F3A90091EDE9 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */; };
 		A223AFC523F03D6E00C8ED3C /* DominantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */; };
 		A24AC5F723F0746D001409F2 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24AC5F623F0746D001409F2 /* settingsViewController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		3D33BF624533051A52A3BA07 /* Pods-colorizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorizer.debug.xcconfig"; path = "Target Support Files/Pods-colorizer/Pods-colorizer.debug.xcconfig"; sourceTree = "<group>"; };
+		563E6D9B23FFA00400974580 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5657B13223F8F3A90091EDE9 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		8C96F94E02781D486DB3463A /* Pods-colorizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorizer.release.xcconfig"; path = "Target Support Files/Pods-colorizer/Pods-colorizer.release.xcconfig"; sourceTree = "<group>"; };
 		A223AFC423F03D6E00C8ED3C /* DominantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominantViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				A27B380A23D5758B00898A5D /* Assets.xcassets */,
 				A27B380C23D5758B00898A5D /* LaunchScreen.storyboard */,
 				A27B380F23D5758B00898A5D /* Info.plist */,
+				563E6D9B23FFA00400974580 /* GoogleService-Info.plist */,
 				A255136023F9B2A0003FB64A /* dropAnimation.gif */,
 			);
 			path = colorizer;
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27B380E23D5758B00898A5D /* LaunchScreen.storyboard in Resources */,
+				563E6D9C23FFA00400974580 /* GoogleService-Info.plist in Resources */,
 				A27B380B23D5758B00898A5D /* Assets.xcassets in Resources */,
 				A255136123F9B2A0003FB64A /* dropAnimation.gif in Resources */,
 				A278CB2723D890D60093CBC2 /* ntc.js in Resources */,
