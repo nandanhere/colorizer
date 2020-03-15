@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  colorizer
+
+  Created by Sumant Sogikar on 02/03/20.
+  Copyright © 2020 Nandan. All rights reserved.
+*/
+"HelpKey" = "    How To Use";
+"LangKey" = "    Language";
+"LoginKey" = "    Login";
+"LogoutKey" = "    Logout";
+"RgbDataKey" = "Display the color data in its native Red,Green and Blue format";
+"EmailKey" = "    EmailID";
+"HueKey" = "Hue";
+"SaturationKey" = "Saturation";
+"BrightnessKey" = "Brightness";
+"RedKey" = "Red";
+"GreenKey" = "Green";
+"BlueKey" = "Blue";
+"DelLabKey" = "Delete All Saved Colors";
+"RevKey" = "This is not reversible";
+"DelButKey" = "Delete All";
+"RGBTKey" = "Give Data in RGB";
+"ContKey" = "    Contact Us";
+"HSBTKey" = "Give Data in HSB";
+"HSBDataKey" = "Display the color data in the Hue, Saturation and Brightness Format";
+"InstKey" = "    Instruction Video";
+"DelA" = "Would you like to delete all data?";
+"Delete" = "Delete";
+"Cancel" = "Cancel";
+"Login" = "Login";
+"Email" = "Email";
+"Password" = "Password";
+"SignUp" = "SignUp";
+"Skip" = "Skip";
+"Sat" = "Sat";
+"Brt" = "Brt";

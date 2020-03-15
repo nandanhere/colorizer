@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Firebase
+var dataBaseColor : UIColor = .black
 class dataBufferPage: UIViewController {
 
 var tempColor : UIColor!
@@ -30,9 +31,10 @@ var tempColor : UIColor!
 
 func setupUI()
 {
+ discoveredColor = dataBaseColor
 //Complementary
 let c1 : UIColor = UIColor(red:( 1 -  (discoveredColor?.coreImageColor.red ?? 0.5)), green: (1 - (discoveredColor?.coreImageColor.green ?? 0.5) ), blue: (1 - (discoveredColor?.coreImageColor.blue ?? 0.5)), alpha: 1)
- 
+
 b1.clipsToBounds = true
 b1.layer.cornerRadius = 35
 b1.backgroundColor = c1
@@ -75,7 +77,7 @@ b5.clipsToBounds = true
 b5.layer.cornerRadius = 35
 b5.backgroundColor = c5
 b5.setTitle(c5.name, for: .normal)
- b5.setTitleColor(c5.isDarkColor == true ? .white : .black, for: .normal)
+b5.setTitleColor(c5.isDarkColor == true ? .white : .black, for: .normal)
 l5.text = c5.hexString
 
 
@@ -97,33 +99,63 @@ l6.text = c6.hexString
 }
 }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        discoveredColor = tempColor
-    outputlabel.text = "OUTPUT"
-    outputlabel.backgroundColor = dominantColor
-    if dominantColor.isDarkColor == true{
-    outputlabel.textColor = .white
-    }
-    else{
-    outputlabel.textColor = .black
-    }
-    setupUI()
-    
-       
-        // Do any additional setup after loading the view.
-    }
+// functions dealing with each button in the buffer view
+@IBAction func butt1(_ sender: Any) {
+dataBaseColor = self.b1.backgroundColor ?? UIColor.black
+performSegue(withIdentifier: "goToDataBaseFromBuffer", sender: self)
+}
+
+@IBAction func butt2(_ sender: Any) {
+dataBaseColor = self.b2.backgroundColor ?? UIColor.black
+performSegue(withIdentifier: "goToDataBaseFromBuffer", sender: self)
+}
+@IBAction func butt3(_ sender: Any) {
+dataBaseColor = self.b3.backgroundColor ?? UIColor.black
+performSegue(withIdentifier: "goToDataBaseFromBuffer", sender: self)
+
+}
+@IBAction func butt4(_ sender: Any) {
+dataBaseColor = self.b4.backgroundColor ?? UIColor.black
+performSegue(withIdentifier: "goToDataBaseFromBuffer", sender: self)
+}
+@IBAction func butt5(_ sender: Any) {
+dataBaseColor = self.b5.backgroundColor ?? UIColor.black
+performSegue(withIdentifier: "goToDataBaseFromBuffer", sender: self)
+}
+@IBAction func butt6(_ sender: Any) {
+dataBaseColor = self.b6.backgroundColor ?? UIColor.black
+performSegue(withIdentifier: "goToDataBaseFromBuffer", sender: self)
+}
+
+
+override func viewDidLoad() {
+super.viewDidLoad()
+discoveredColor = tempColor
+outputlabel.text = "Selected Color - \(dataBaseColor.name) \n Domiant color - \(dominantColor.name)"
+outputlabel.backgroundColor = dominantColor
+if dominantColor.isDarkColor == true{
+outputlabel.textColor = .white
+}
+else{
+outputlabel.textColor = .black
+}
+setupUI()
+
+
+// Do any additional setup after loading the view.
+}
 override func viewDidAppear(_ animated: Bool) {
 setupUI()
 }
+ 
 @IBAction func returnToPreviousView(_ sender: Any) {
 self.dismiss(animated: true) {
- 
+
 }
 }
 
 @IBAction func Sharer(_ sender: Any) {
-let SharingVC = UIActivityViewController(activityItems: ["I discovered this brand new color called \((discoveredColor?.name)!) with its hexcode as \((discoveredColor?.hexString)!).You too can do that! Just search 'colorizer' in the app store and discover the artist in you!"], applicationActivities: nil)
+let SharingVC = UIActivityViewController(activityItems: ["I discovered this brand new color called \((discoveredColor?.name)!) with its hexcode as \((discoveredColor?.hexString)!).You can do that too! Just search 'colorizer' in the app store and discover the artist in you!"], applicationActivities: nil)
 if let pop = SharingVC.popoverPresentationController{
 pop.sourceView = self.view
 pop.sourceRect = (sender as AnyObject).frame
@@ -131,8 +163,29 @@ pop.sourceRect = (sender as AnyObject).frame
 }
 self.present(SharingVC, animated: true, completion: nil)
 }
+@IBAction func Purchaser(_ sender: Any) {
+dataBaseColor = discoveredColor ?? UIColor.black
+if Auth.auth().currentUser != nil{
+performSegue(withIdentifier: "GoGoHikashi", sender: self)
+}
+else{
+let alert = UIAlertController(title: "Not Logged In", message: "Login to access more features", preferredStyle: .alert)
+let login = UIAlertAction(title: "LogIn", style: .default, handler: { _ in
+fromWeb = true
+self.performSegue(withIdentifier: "LogWeb", sender: self)
+})
+let NotNow = UIAlertAction(title: "Not Now", style: .default, handler: { _ in
+self.performSegue(withIdentifier: "GoGoHikashi", sender: self)
+})
+
+alert.addAction(NotNow)
+alert.addAction(login)
+self.present(alert, animated: true, completion: nil)
+}
+}
 
 
-     
+
+
 
 }

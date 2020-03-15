@@ -1,0 +1,249 @@
+
+/* Class = "UILabel"; text = "Monochrome"; ObjectID = "0AA-f6-wD8"; */
+"0AA-f6-wD8.text" = "Monochrome";
+
+/* Class = "UIViewController"; title = "liveDetector"; ObjectID = "0Rk-rK-zPg"; */
+"0Rk-rK-zPg.title" = "liveDetector";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0hV-J3-kxI"; */
+"0hV-J3-kxI.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "    Language"; ObjectID = "1g3-tV-FpW"; */
+"1g3-tV-FpW.normalTitle" = "    Language";
+
+/* Class = "UIButton"; normalTitle = "live"; ObjectID = "2IO-O4-iLb"; */
+"2IO-O4-iLb.normalTitle" = "live";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2t9-cS-p6e"; */
+"2t9-cS-p6e.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "RGB / 2"; ObjectID = "32a-eR-YzC"; */
+"32a-eR-YzC.text" = "RGB / 2";
+
+/* Class = "UITextField"; placeholder = " Password"; ObjectID = "38e-eT-lDr"; */
+"38e-eT-lDr.placeholder" = " Password";
+
+/* Class = "UILabel"; text = "Display the color data in the Hue, Saturation and Brightness Format"; ObjectID = "3wF-Ce-LpC"; */
+"3wF-Ce-LpC.text" = "Display the color data in the Hue, Saturation and Brightness Format";
+
+/* Class = "UIButton"; normalTitle = "    LogIn"; ObjectID = "43P-nH-pTU"; */
+"43P-nH-pTU.normalTitle" = "    LogIn";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "55z-gf-M4A"; */
+"55z-gf-M4A.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5bF-x0-b1A"; */
+"5bF-x0-b1A.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5iO-SD-sMh"; */
+"5iO-SD-sMh.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "30% Lighter"; ObjectID = "5yX-HQ-dcg"; */
+"5yX-HQ-dcg.text" = "30% Lighter";
+
+/* Class = "UIButton"; normalTitle = "    Email ID"; ObjectID = "63z-bF-buY"; */
+"63z-bF-buY.normalTitle" = "    Email ID";
+
+/* Class = "UILabel"; text = "Give Data in HSB"; ObjectID = "6Qe-e8-KZF"; */
+"6Qe-e8-KZF.text" = "Give Data in HSB";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "7mW-Nc-tAw"; */
+"7mW-Nc-tAw.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Delete All"; ObjectID = "7qa-dV-9Xa"; */
+"7qa-dV-9Xa.normalTitle" = "Delete All";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8JI-bl-G0I"; */
+"8JI-bl-G0I.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "957-IQ-TSW"; */
+"957-IQ-TSW.normalTitle" = "Skip";
+
+/* Class = "UIButton"; normalTitle = "    Instruction Video"; ObjectID = "AYN-J6-BBn"; */
+"AYN-J6-BBn.normalTitle" = "    Instruction Video";
+
+/* Class = "UIButton"; normalTitle = "Use Camera"; ObjectID = "B4u-IL-9GG"; */
+"B4u-IL-9GG.normalTitle" = "Use Camera";
+
+/* Class = "UIViewController"; title = "halfAliveDetector"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "halfAliveDetector";
+
+/* Class = "UITableViewSection"; headerTitle = "Basic Settings"; ObjectID = "C40-4o-MkC"; */
+"C40-4o-MkC.headerTitle" = "Basic Settings";
+
+/* Class = "UITableViewSection"; headerTitle = "Info"; ObjectID = "CVX-HT-ue2"; */
+"CVX-HT-ue2.headerTitle" = "Info";
+
+/* Class = "UITableViewSection"; headerTitle = "Saved Data"; ObjectID = "Ebg-P4-5Iw"; */
+"Ebg-P4-5Iw.headerTitle" = "Saved Data";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G00-cd-KJJ"; */
+"G00-cd-KJJ.text" = "Label";
+
+/* Class = "UITextField"; text = "128"; ObjectID = "HJd-LW-rBv"; */
+"HJd-LW-rBv.text" = "128";
+
+/* Class = "UIButton"; normalTitle = "Tap here to save"; ObjectID = "I6Q-WD-ogH"; */
+"I6Q-WD-ogH.normalTitle" = "Tap here to save";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IhU-rR-bzG"; */
+"IhU-rR-bzG.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "RED"; ObjectID = "JD4-K3-LyN"; */
+"JD4-K3-LyN.text" = "RED";
+
+/* Class = "UIButton"; normalTitle = "    Contact Us"; ObjectID = "K86-um-apC"; */
+"K86-um-apC.normalTitle" = "    Contact Us";
+
+/* Class = "UILabel"; text = "THIS IS NOT REVERSIBLE. "; ObjectID = "Knu-XN-RAd"; */
+"Knu-XN-RAd.text" = "THIS IS NOT REVERSIBLE. ";
+
+/* Class = "UITableViewSection"; headerTitle = "Info"; ObjectID = "Lxk-x2-gfm"; */
+"Lxk-x2-gfm.headerTitle" = "Info";
+
+/* Class = "UIButton"; normalTitle = "goback"; ObjectID = "N6c-qP-4Kw"; */
+"N6c-qP-4Kw.normalTitle" = "goback";
+
+/* Class = "UITextField"; placeholder = " Email"; ObjectID = "OqK-Uw-Cv8"; */
+"OqK-Uw-Cv8.placeholder" = " Email";
+
+/* Class = "UILabel"; text = "Complementary"; ObjectID = "Qf3-Yt-i4u"; */
+"Qf3-Yt-i4u.text" = "Complementary";
+
+/* Class = "UILabel"; text = "Display the color data in its native Red,Green and Blue format"; ObjectID = "RQ9-9f-b20"; */
+"RQ9-9f-b20.text" = "Display the color data in its native Red,Green and Blue format";
+
+/* Class = "UIButton"; normalTitle = "goback"; ObjectID = "RbA-2w-XPf"; */
+"RbA-2w-XPf.normalTitle" = "goback";
+
+/* Class = "UIButton"; normalTitle = "    How To Use"; ObjectID = "ThH-mF-e64"; */
+"ThH-mF-e64.normalTitle" = "    How To Use";
+
+/* Class = "UILabel"; text = "BLUE"; ObjectID = "TjZ-B9-Zhu"; */
+"TjZ-B9-Zhu.text" = "BLUE";
+
+/* Class = "UITextField"; text = "128"; ObjectID = "U3R-mJ-qFB"; */
+"U3R-mJ-qFB.text" = "128";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VND-uV-Ng9"; */
+"VND-uV-Ng9.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Search online for COLORS"; ObjectID = "W1u-g5-SNM"; */
+"W1u-g5-SNM.text" = "Search online for COLORS";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WFC-Os-vXb"; */
+"WFC-Os-vXb.normalTitle" = "Button";
+
+/* Class = "UITextField"; text = "128"; ObjectID = "YgJ-O6-Dca"; */
+"YgJ-O6-Dca.text" = "128";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "YlS-dV-Wg7"; */
+"YlS-dV-Wg7.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ywq-Pb-Eh2"; */
+"Ywq-Pb-Eh2.text" = "Label";
+
+/* Class = "UILabel"; text = "Hex Value"; ObjectID = "Z0b-qw-rKj"; */
+"Z0b-qw-rKj.text" = "Hex Value";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ZvA-pg-ZUU"; */
+"ZvA-pg-ZUU.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a48-we-eBJ"; */
+"a48-we-eBJ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Orignal"; ObjectID = "b0T-cO-ye1"; */
+"b0T-cO-ye1.text" = "Orignal";
+
+/* Class = "UIButton"; normalTitle = "goback"; ObjectID = "b8y-vc-qXa"; */
+"b8y-vc-qXa.normalTitle" = "goback";
+
+/* Class = "UIButton"; normalTitle = "SignUp"; ObjectID = "duf-5F-eRI"; */
+"duf-5F-eRI.normalTitle" = "SignUp";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "eFQ-cd-voH"; */
+"eFQ-cd-voH.normalTitle" = "Back";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fTP-Sl-bID"; */
+"fTP-Sl-bID.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Events"; ObjectID = "fTh-St-qJw"; */
+"fTh-St-qJw.normalTitle" = "Events";
+
+/* Class = "UILabel"; text = "30% Darker"; ObjectID = "gMi-LZ-cFY"; */
+"gMi-LZ-cFY.text" = "30% Darker";
+
+/* Class = "UILabel"; text = "GREEN"; ObjectID = "gYO-x0-7Na"; */
+"gYO-x0-7Na.text" = "GREEN";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "gxB-GK-wua"; */
+"gxB-GK-wua.title" = "Settings";
+
+/* Class = "UIViewController"; title = "dataBufferPage"; ObjectID = "h4m-ge-SsO"; */
+"h4m-ge-SsO.title" = "dataBufferPage";
+
+/* Class = "UILabel"; text = "Result Here"; ObjectID = "hny-yr-xHP"; */
+"hny-yr-xHP.text" = "Result Here";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "i5T-mw-RfI"; */
+"i5T-mw-RfI.title" = "Settings";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ine-3o-PQM"; */
+"ine-3o-PQM.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "j8P-P0-FJi"; */
+"j8P-P0-FJi.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lLn-9G-D44"; */
+"lLn-9G-D44.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Delete All Saved Colors"; ObjectID = "ldn-1e-MHN"; */
+"ldn-1e-MHN.text" = "Delete All Saved Colors";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lqC-pC-utQ"; */
+"lqC-pC-utQ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Manual"; ObjectID = "mKg-mS-eBR"; */
+"mKg-mS-eBR.normalTitle" = "Manual";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "oM6-dh-Nka"; */
+"oM6-dh-Nka.text" = "---";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "oMu-F6-vGH"; */
+"oMu-F6-vGH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Hex Value"; ObjectID = "p4s-6F-tIQ"; */
+"p4s-6F-tIQ.text" = "Hex Value";
+
+/* Class = "UILabel"; text = "Hex Value"; ObjectID = "pGr-r3-4jx"; */
+"pGr-r3-4jx.text" = "Hex Value";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pgX-rs-LOf"; */
+"pgX-rs-LOf.text" = "Label";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "pxk-ac-Dwa"; */
+"pxk-ac-Dwa.text" = "Settings";
+
+/* Class = "UILabel"; text = "☜"; ObjectID = "qAQ-ci-BSO"; */
+"qAQ-ci-BSO.text" = "☜";
+
+/* Class = "UILabel"; text = "☞"; ObjectID = "rJA-PA-l2T"; */
+"rJA-PA-l2T.text" = "☞";
+
+/* Class = "UIButton"; normalTitle = " import"; ObjectID = "rYc-t7-cq0"; */
+"rYc-t7-cq0.normalTitle" = " import";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "sa9-0Z-ZJc"; */
+"sa9-0Z-ZJc.text" = "Loading...";
+
+/* Class = "UILabel"; text = "Give Data in RGB"; ObjectID = "uoY-Zy-wt5"; */
+"uoY-Zy-wt5.text" = "Give Data in RGB";
+
+/* Class = "UIButton"; normalTitle = "goback"; ObjectID = "v0g-RA-d70"; */
+"v0g-RA-d70.normalTitle" = "goback";
+
+/* Class = "UINavigationItem"; title = " Data list"; ObjectID = "zDU-SO-74q"; */
+"zDU-SO-74q.title" = " Data list";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zvi-7N-blJ"; */
+"zvi-7N-blJ.text" = "Label";

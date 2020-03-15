@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  colorizer
+
+  Created by Sumant Sogikar on 02/03/20.
+  Copyright © 2020 Nandan. All rights reserved.
+*/
+"HelpKey" = "    使い方";
+"LangKey" = "    言語";
+"LoginKey" = "    ログインする";
+"LogoutKey" = "    ログアウト";
+"RgbDataKey" = "ネイティブの赤、緑、青の形式で色データを表示する";
+"EmailKey" = "    電子メールID";
+"HueKey" = "色相";
+"SaturationKey" = "飽和";
+"BrightnessKey" = "輝度";
+"RedKey" = "赤";
+"GreenKey" = "緑";
+"BlueKey" = "青い";
+"DelLabKey" = "保存したすべての色を削除";
+"RevKey" = "これは可逆的ではありません";
+"DelButKey" = "すべて削除";
+"RGBTKey" = "RGBでデータを与える";
+"ContKey" = "    お問い合わせ";
+"HSBTKey" = "HSBでデータを提供する";
+"HSBDataKey" = "色相、彩度、輝度の形式で色データを表示します";
+"InstKey" = "    指示ビデオ";
+"DelA" = "すべてのデータを削除しますか？";
+"Delete" = "削除する";
+"Cancel" = "キャンセル";
+"Login" = "ログインする";
+"Email" = "電子メール";
+"Password" = "パスワード";
+"SignUp" = "サインアップ";
+"Skip" = "スキップ";

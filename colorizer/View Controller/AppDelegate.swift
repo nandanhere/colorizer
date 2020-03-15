@@ -22,10 +22,12 @@ var window: UIWindow?
      else
      {
          print("First launch")
-     
+
          UserDefaults.standard.set(true, forKey: "launchedBefore")
      }
+
         // Override point for customization after application launch.
+    //Firebase Configuration
     FirebaseApp.configure()
         return true
     }
