@@ -133,7 +133,7 @@ preSetup()
 super.viewDidLoad()
 // Runs the Functions in it after a specified amount of time so that the loading screen can properly be displayed
 DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-if let isFirstStart = UserDefaults.standard.value(forKey: "isFirstLaunch") as? Bool {
+if (UserDefaults.standard.value(forKey: "isFirstLaunch") as? Bool) != nil {
     print("this is not the first launch")
 } else {
     print("this is the first launch")
@@ -295,7 +295,7 @@ ow = Scroll.contentOffset.x +  crosshairGesture.center.x - 25
 func valueDisplayer(_ color : UIColor) {
 // Start of the RGB ShowCaser
 let vc = LangViewController()
-var val = vc.defaultLang
+let val = vc.defaultLang
 values.backgroundColor = .init(white: 1, alpha: 0.3)
 values.frame = CGRect(x: myImageView.bounds.width - 90, y: myImageView.bounds.height / 20, width: 100, height: 60)
 values.layer.cornerRadius = 10

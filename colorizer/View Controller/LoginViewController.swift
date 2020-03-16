@@ -27,7 +27,7 @@ let gradientLayer = CAGradientLayer()
 override func viewDidLoad() {
         super.viewDidLoad()
 let vc = LangViewController()
-var val = vc.defaultLang
+let val = vc.defaultLang
 if val == true{
 self.languageShower(selectedlang: "en")
 }

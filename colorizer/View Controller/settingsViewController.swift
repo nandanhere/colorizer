@@ -89,7 +89,7 @@ let pageSix = OnboardPage(title: "Color Slider", imageName: "Slider", descriptio
 let pageSeven = OnboardPage(title: "Settings Screen", imageName: "Settings", description: "Change the RGB to HSB here anytime. \n Login to our site.\n If you ever are stuck somewhere,you can use help or contact us anytime for queries."
 )
  let logger = OnboardPage(title: "Logging In", imageName: "Login" , description: "Login/SignUp into our database and get added benefits in our app.\nSignUp consists of entering your email address and a 8 charactered password.\nYou can always skip signing up.")
- let lang = OnboardPage(title: "Selecting Your Language", imageName: "Language" , description: "Select the language your comfortable in to apply it all over our app as to aid in simplifying your work.")
+ let lang = OnboardPage(title: "Selecting Your Language", imageName: "Language" , description: "Select the language you're comfortable in to apply it all over our app as to aid in simplifying your work.")
   let pageEight = OnboardPage(title: "All Ready",
     description: "You are all set and ready to discover new colors. Let's Begin!",
     advanceButtonTitle: "Begin")
@@ -99,13 +99,11 @@ let pageSeven = OnboardPage(title: "Settings Screen", imageName: "Settings", des
 var def = UserDefaults().bool(forKey: "pickerViewRow")
 //MARK: - Override
 override func viewDidLoad() {
-let vc = LangViewController()
-var val : Bool = vc.defaultLang
-        super.viewDidLoad()
+          super.viewDidLoad()
 //Language Changer
 langchange()
 //Checks if this is the first time if app is launched
-if let isFirstStart = UserDefaults.standard.value(forKey: "isFirstLaunch") as? Bool {
+if (UserDefaults.standard.value(forKey: "isFirstLaunch") as? Bool) != nil {
 Shower2.isHidden = true
 Shower.isHidden = true
 }
@@ -152,7 +150,7 @@ override func viewWillAppear(_ animated: Bool) {
 //Language Changer
 langchange()
 let vc = LangViewController()
-var val : Bool = vc.defaultLang
+let val : Bool = vc.defaultLang
 if val == true{
 Teller.text = "English"
 }
@@ -163,7 +161,7 @@ Teller.text = "日本語(Japanese)"
 //Language Changer
 func langchange(){
 let vc = LangViewController()
-var val : Bool = vc.defaultLang
+let val : Bool = vc.defaultLang
 //English
 if val == true{
 //Language Displayer
@@ -240,7 +238,7 @@ tt = true
 @IBAction func Walker(_ sender: Any) {
 Shower.isHidden = true
 //Checks if its first run or not
-if let isFirstStart = UserDefaults.standard.value(forKey: "isFirstLaunch") as? Bool {
+if (UserDefaults.standard.value(forKey: "isFirstLaunch") as? Bool) != nil {
 print("Not First Launch")
 }
 else {
@@ -267,7 +265,7 @@ onboardingVC.presentFrom(self, animated: true)
 
 @IBAction func deleteAllSavedColors(_ sender: Any) {
  let vc = LangViewController()
-var val : Bool = vc.defaultLang
+let val : Bool = vc.defaultLang
 var dec = ""
 if val == true{
 dec = "en"

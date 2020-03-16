@@ -227,7 +227,7 @@ let vc = LangViewController()
 /// If the switch is on then it converts to the HSB values
 //Changes the Color as well as Language depending on the bool value used in the LangViewController
 func changeToColorType() {
-var val :Bool = vc.defaultLang
+let val :Bool = vc.defaultLang
 if !truth{
 if val == true{
 RedLabel.text = "HueKey".localisableString(loc: "en")
