@@ -295,7 +295,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKG-Ql-OgD">
-                                                    <rect key="frame" x="0.0" y="5" width="343" height="34"/>
+                                                    <rect key="frame" x="0.0" y="5" width="343" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="    Hello"/>
                                                     <connections>
@@ -555,6 +555,16 @@
                                     <action selector="Skipper:" destination="ScO-1G-lxA" eventType="touchUpInside" id="2tD-bh-qT7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-RQ-joE">
+                                <rect key="frame" x="248.5" y="321" width="79" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Forgot:" destination="ScO-1G-lxA" eventType="touchUpInside" id="9dn-cP-8Zc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -563,12 +573,14 @@
                             <constraint firstItem="nm7-Py-Asb" firstAttribute="trailing" secondItem="ine-3o-PQM" secondAttribute="trailing" constant="71" id="BCg-Ph-Evs"/>
                             <constraint firstItem="nm7-Py-Asb" firstAttribute="trailing" secondItem="957-IQ-TSW" secondAttribute="trailing" constant="112" id="ISW-zO-slZ"/>
                             <constraint firstItem="nm7-Py-Asb" firstAttribute="trailing" secondItem="38e-eT-lDr" secondAttribute="trailing" constant="38" id="Nmv-gj-qQw"/>
+                            <constraint firstItem="USN-RQ-joE" firstAttribute="top" secondItem="38e-eT-lDr" secondAttribute="top" constant="5" id="SqV-bK-ruy"/>
                             <constraint firstItem="38e-eT-lDr" firstAttribute="top" secondItem="OqK-Uw-Cv8" secondAttribute="bottom" constant="40" id="Uok-H3-9Bx"/>
                             <constraint firstItem="38e-eT-lDr" firstAttribute="leading" secondItem="nm7-Py-Asb" secondAttribute="leading" constant="39" id="Wkz-zq-h84"/>
                             <constraint firstItem="OqK-Uw-Cv8" firstAttribute="leading" secondItem="nm7-Py-Asb" secondAttribute="leading" constant="38" id="XIH-Xj-abz"/>
                             <constraint firstItem="OqK-Uw-Cv8" firstAttribute="top" secondItem="nm7-Py-Asb" secondAttribute="top" constant="242" id="YUA-vh-17a"/>
                             <constraint firstItem="957-IQ-TSW" firstAttribute="top" secondItem="duf-5F-eRI" secondAttribute="bottom" constant="24" id="fX6-Ek-yoR"/>
                             <constraint firstItem="ine-3o-PQM" firstAttribute="leading" secondItem="nm7-Py-Asb" secondAttribute="leading" constant="73" id="h2N-i6-c4Q"/>
+                            <constraint firstItem="USN-RQ-joE" firstAttribute="centerX" secondItem="38e-eT-lDr" secondAttribute="centerX" constant="100" id="ned-F4-wwp"/>
                             <constraint firstItem="ine-3o-PQM" firstAttribute="top" secondItem="38e-eT-lDr" secondAttribute="bottom" constant="23" id="q3v-HS-dtm"/>
                             <constraint firstItem="duf-5F-eRI" firstAttribute="top" secondItem="ine-3o-PQM" secondAttribute="bottom" constant="28" id="yQX-Rx-ugy"/>
                             <constraint firstItem="nm7-Py-Asb" firstAttribute="trailing" secondItem="OqK-Uw-Cv8" secondAttribute="trailing" constant="39" id="ydD-z3-b2n"/>
@@ -584,6 +596,7 @@
                         <outlet property="PasswordTF" destination="38e-eT-lDr" id="2qv-ZV-QGI"/>
                         <outlet property="SignBut" destination="duf-5F-eRI" id="n3N-0N-Ern"/>
                         <outlet property="SkipBut" destination="957-IQ-TSW" id="UuV-eI-nnG"/>
+                        <outlet property="forgottenPassword" destination="USN-RQ-joE" id="BWV-2m-LRv"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginDone" animates="NO" modalPresentationStyle="fullScreen" id="v8Z-dG-brc"/>
                         <segue destination="SdK-Xs-iqN" kind="unwind" identifier="BackToWeb" unwindAction="unwindTobufferWithSegue:" id="ozY-8J-mgp"/>
                         <segue destination="SdK-Xs-iqN" kind="unwind" identifier="BackToHalf" unwindAction="unwindToHalfAliveWithSegue:" id="4l4-Kc-NHP"/>
@@ -1422,7 +1435,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-js-Ydb">
-                                <rect key="frame" x="0.0" y="162" width="375" height="486"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="396"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="66" id="dx2-uA-Vyg" customClass="CustomTableViewCell" customModule="colorizer" customModuleProvider="target">
@@ -1495,7 +1508,7 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6Q-WD-ogH">
-                                <rect key="frame" x="125" y="68" width="125" height="64"/>
+                                <rect key="frame" x="125" y="68" width="125" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="xr6-4D-3xa"/>
                                 </constraints>
@@ -1508,7 +1521,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-P0-FJi">
-                                <rect key="frame" x="125" y="68" width="125" height="64"/>
+                                <rect key="frame" x="125" y="68" width="125" height="34"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>

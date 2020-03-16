@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
 @IBOutlet weak var PasswordTF: UITextField!
 @IBOutlet weak var LoginTF: UITextField!
 @IBOutlet weak var PassTF: UITextField!
+@IBOutlet weak var forgottenPassword: UIButton!
 //Used for gradient background
 let gradientLayer = CAGradientLayer()
 
@@ -193,6 +194,29 @@ fromWeb = false
 self.performSegue(withIdentifier: "BackToHalf", sender: self)
 }
 }
+
+@IBAction func Forgot(_ sender: Any) {
+let alert = UIAlertController(title: "Password Reset", message:  "Enter your emailID to recieve the reset link.", preferredStyle: .alert)
+alert.addTextField { textEmail in
+  textEmail.placeholder = "Enter your email (Ex.:abc@pqr.com)"
+}
+let sendAction = UIAlertAction(title: "Send", style: .default) { _ in let email = alert.textFields![0]
+Auth.auth().sendPasswordReset(withEmail: email.text!, completion: { (error) in
+if error != nil{
+               let resetFailedAlert = UIAlertController(title: "Password Reset Failed", message: "Consider trying again with a different emailID", preferredStyle: .alert)
+               resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+               self.present(resetFailedAlert, animated: true, completion: nil)
+}})
+
+}
+let cancelAction = UIAlertAction(title: "Cancel",
+                                 style: .default)
+alert.addAction(cancelAction)
+alert.addAction(sendAction)
+present(alert,animated: true,completion: nil)
+}
+
+
 /*
     // MARK: - Navigation
 

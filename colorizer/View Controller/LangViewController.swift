@@ -40,21 +40,25 @@ return cell
 }
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 let cell = tableView.cellForRow(at: indexPath)
+let selectionColor = UIView() as UIView
+selectionColor.layer.borderWidth = 1
+selectionColor.layer.borderColor =  UIColor(hex: "#02c1af").cgColor
+selectionColor.backgroundColor = UIColor(hex: "#02c1af")
+cell?.selectedBackgroundView = selectionColor
+
 
 //if english is selected
 if indexPath.row == 0{
 UserDefaults().set(true, forKey: "EN")
 ja = false
-cell?.backgroundColor = .lightGray
-
+ 
 }
 //if japanese is selected
 else if indexPath.row == 1{
 print(1)
 UserDefaults().set(false, forKey: "EN")
 ja = true
-cell?.backgroundColor = .lightGray
-}
+ }
 }
 override func viewDidLoad() {
         super.viewDidLoad()
