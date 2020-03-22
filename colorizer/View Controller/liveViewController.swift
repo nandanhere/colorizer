@@ -2,7 +2,7 @@
 //  liveViewController.swift
 //  colorizer
 //
-//  Updated by Nandan on 20/01/20.
+//  Updated and translated by Nandan on 20/01/20. for iOS 13
 //  Copyright © 2020 Nandan. All rights reserved.
 //  Created by Zhe Qin on 2018/5/7.
 //

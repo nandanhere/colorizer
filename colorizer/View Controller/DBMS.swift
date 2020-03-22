@@ -350,16 +350,7 @@ func tableView(_ tableView: UITableView,
      alert.addAction(EditAction)
      self.present(alert , animated: true , completion: nil)
      
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+      
      
          })
 editAction.backgroundColor = .blue
@@ -419,25 +410,7 @@ searchBar.resignFirstResponder()
 tableView.reloadData()
 }
  
-
-@IBAction func purchaser(_ sender: Any) {
-//if Auth.auth().currentUser != nil{
-//performSegue(withIdentifier: "GoGoHikashi", sender: self)
-//}
-//else{
-//let alert = UIAlertController(title: "Not Logged In", message: "Login to access more features", preferredStyle: .alert)
-//let login = UIAlertAction(title: "LogIn", style: .default, handler: { _ in
-//fromWeb = true
-//self.performSegue(withIdentifier: "LogWeb", sender: self)
-//})
-//let NotNow = UIAlertAction(title: "Not Now", style: .default, handler: { _ in
-//self.performSegue(withIdentifier: "GoGoHikashi", sender: self)
-//})
-//alert.addAction(login)
-//alert.addAction(NotNow)
-//self.present(alert, animated: true, completion: nil)
-//}
-}
+ 
 
 
 }
